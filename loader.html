@@ -1,6 +1,6 @@
 <!-- ============================================================
 Custom-code loading — three pieces, pasted into three different places
-in Webflow (piece 2 is two Embeds, 2a and 2b). Replace ORG and REPO (all occurrences, pieces 1 and 2). The release
+in Webflow (piece 2 is two Embeds, 2a and 2b). ORG and REPO are filled in (brandvm/wf-roncelli). The release
 version lives in ONE place: RELEASE in piece 1.
 
   prod        = pinned jsDelivr tag (immutable)
@@ -48,10 +48,10 @@ published.
 <script>
   (function () {
     var RELEASE = null; // the release tag, e.g. "1.0.0" — the only version string
-    var OWNER = "ORG"; // the GitHub org or user that owns this repo
-    var SITE = "REPO"; // this repo's name
+    var OWNER = "brandvm"; // the GitHub org or user that owns this repo
+    var SITE = "wf-roncelli"; // this repo's name
     var STAG = "https://" + OWNER + ".github.io/" + SITE + "/";
-    var DEV = "http://localhost:3000/"; // the dev server: devPort in webflow-build.config.json (3000 if unset)
+    var DEV = "http://localhost:3666/"; // the dev server: devPort in webflow-build.config.json (3000 if unset)
     // *.canvas.webflow.com is the Designer's custom-code preview: a separate
     // origin, with its own URL flag and localStorage.
     var staging = /\.webflow\.io$|\.canvas\.webflow\.com$/.test(location.hostname);
@@ -165,7 +165,7 @@ published.
    local-network-access prompt. To see local CSS on the canvas while
    designing, add this link below wfc-css TEMPORARILY, with `pnpm dev`
    running, and remove it before publishing:
-     <link id="wfc-css-dev" rel="stylesheet" href="http://localhost:3000/styles.css" />
+     <link id="wfc-css-dev" rel="stylesheet" href="http://localhost:3666/styles.css" />
    While both are live they are ADDITIVE: deleting a rule locally does
    not delete staging's copy of it. Deletions can only be verified
    after a push.
@@ -181,7 +181,7 @@ published.
 <link
   id="wfc-css"
   rel="stylesheet"
-  href="https://ORG.github.io/REPO/styles.css?v=1"
+  href="https://brandvm.github.io/wf-roncelli/styles.css?v=1"
 />
 
 <!-- ============================================================

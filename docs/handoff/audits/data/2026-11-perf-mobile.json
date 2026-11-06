@@ -1,0 +1,128 @@
+{
+  "date": "2026-11-06T18:33:41.353Z",
+  "base": "https://www.buildroncelli.com",
+  "runs": 3,
+  "lighthouse": "lighthouse@12",
+  "pages": {
+    "/": {
+      "mobile": {
+        "runs": 3,
+        "score": {
+          "median": 63,
+          "min": 59,
+          "max": 72
+        },
+        "lcp": {
+          "median": 5681,
+          "min": 5649,
+          "max": 11972
+        },
+        "fcp": {
+          "median": 2243,
+          "min": 2230,
+          "max": 6722
+        },
+        "tbt": {
+          "median": 134,
+          "min": 62,
+          "max": 238
+        },
+        "cls": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "si": {
+          "median": 6785,
+          "min": 4789,
+          "max": 39052
+        },
+        "bytes": {
+          "median": 2108,
+          "min": 2107,
+          "max": 2141
+        }
+      }
+    },
+    "/contact": {
+      "mobile": {
+        "runs": 3,
+        "score": {
+          "median": 59,
+          "min": 58,
+          "max": 59
+        },
+        "lcp": {
+          "median": 11531,
+          "min": 10752,
+          "max": 11589
+        },
+        "fcp": {
+          "median": 6697,
+          "min": 6603,
+          "max": 6809
+        },
+        "tbt": {
+          "median": 55,
+          "min": 48,
+          "max": 105
+        },
+        "cls": {
+          "median": 0,
+          "min": 0,
+          "max": 0
+        },
+        "si": {
+          "median": 6697,
+          "min": 6603,
+          "max": 6809
+        },
+        "bytes": {
+          "median": 2255,
+          "min": 2255,
+          "max": 2256
+        }
+      }
+    },
+    "/project/beacon-park-detroit": {
+      "mobile": {
+        "runs": 3,
+        "score": {
+          "median": 57,
+          "min": 51,
+          "max": 58
+        },
+        "lcp": {
+          "median": 7264,
+          "min": 7202,
+          "max": 13747
+        },
+        "fcp": {
+          "median": 3869,
+          "min": 2699,
+          "max": 6902
+        },
+        "tbt": {
+          "median": 265,
+          "min": 105,
+          "max": 348
+        },
+        "cls": {
+          "median": 0.001,
+          "min": 0,
+          "max": 0.002
+        },
+        "si": {
+          "median": 29024,
+          "min": 6902,
+          "max": 29247
+        },
+        "bytes": {
+          "median": 3422,
+          "min": 3422,
+          "max": 3424
+        }
+      }
+    }
+  }
+}

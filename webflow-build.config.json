@@ -1,0 +1,51 @@
+{
+  "prototypeUrl": "http://127.0.0.1:5766",
+  "devPort": 3666,
+  "stagingUrl": "https://roncelli.webflow.io",
+  "repoDir": ".",
+  "bundlePattern": "brandvm\\.github\\.io/wf-roncelli/(index\\.js|styles\\.css)",
+  "widths": [
+    [
+      1440,
+      900
+    ],
+    [
+      820,
+      1180
+    ],
+    [
+      667,
+      375
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "pages": [
+    "/",
+    "/about",
+    "/leadership",
+    "/how-we-build",
+    "/how-we-build/self-perform-group",
+    "/what-we-build",
+    "/careers",
+    "/news",
+    "/trade-partners",
+    "/contact",
+    "/faq",
+    "/where-we-build",
+    "/market/healthcare",
+    "/project/beacon-park-detroit",
+    "/news/a-fresh-look-for-roncellis-60th-year",
+    "/legal/privacy-policy"
+  ],
+  "liveUrl": "https://www.buildroncelli.com",
+  "seo": {
+    "noindexOk": [],
+    "noSchemaOk": [
+      "^/(legal/privacy-policy|404)$"
+    ],
+    "maxPages": 500
+  }
+}

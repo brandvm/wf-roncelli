@@ -1,8 +1,30 @@
 {
   "format": 2,
-  "plans": [],
-  "ticks": {},
-  "todos": [],
+  "plans": [
+    {"id":"maintenance","kind":"maintenance","status":"active","started":"2026-11-06","cycle":{"day":6}}
+  ],
+  "ticks": {
+    "maintenance/maintenance/Monthly health check": {
+      "338ee5fa8c2a": {"text":"SSL valid for more than 30 days; the domain renews in time.","by":"check","at":"2026-11-06T20:53:25.989Z"},
+      "3998e5cc937c": {"text":"Mobile speed within 5 points of last month's (PageSpeed Insights).","by":"check","at":"2026-11-06T20:53:25.413Z"},
+      "6536c45d0943": {"text":"No console errors on the main pages at Desktop and Mobile.","by":"check","at":"2026-11-06T20:53:25.718Z"}
+    },
+    "maintenance/maintenance/Monthly note": {
+      "cd7764b71df4": {"text":"Note drafted: requests done, what the health check found and fixed, anything the client should decide.","by":"claude","at":"2026-11-06T20:53:26.236Z"}
+    }
+  },
+  "todos": [
+    {"id":"t-26b1b854","text":"Decide: cookie consent banner needed? (GA4 runs with no banner)","done":false},
+    {"id":"t-8bca7633","text":"Decide: which of the two Ahrefs keys is Roncelli's","done":false},
+    {"id":"t-a25aeee4","text":"Decide: which copy of each duplicate project/news item stays (action list B1)","done":false},
+    {"id":"t-9df7447a","text":"Approve content fixes in news posts (action list B2–B10)","done":false},
+    {"id":"t-b4d8b610","text":"Test-submit every form and confirm notifications arrive","done":false},
+    {"id":"t-9cc3fe78","text":"Check Webflow plan, CMS and form limits","done":false},
+    {"id":"t-92203560","text":"Take a Webflow backup (Site settings › Backups) before the parity release","done":false},
+    {"id":"t-7a4f1ff8","text":"Create the GitHub repo brandvm/wf-roncelli and push this repo","done":false}
+  ],
   "components": [],
-  "history": []
+  "history": [
+    {"at":"2026-11-06T20:53:24.604Z","text":"Started maintenance"}
+  ]
 }
