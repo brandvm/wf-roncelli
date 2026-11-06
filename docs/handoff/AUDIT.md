@@ -31,4 +31,4 @@ The monthly check is `webflow-maintenance` › Monthly health check. Each month 
 
 ## Noise floor (two untouched baseline runs)
 
-_To be filled in from `pnpm wf:baseline compare --live --dir .webflow-build/baselines`._
+2026-11-06, `pnpm wf:baseline compare --live --dir .webflow-build/baselines --threshold 0`, run right after `save` with no change made: all 64 shots matched, 0.0% of pixels changed and the same height (16 pages × 1440, 820, 667, 390). **The noise floor is 0%**, so any difference in a later compare is a real change.

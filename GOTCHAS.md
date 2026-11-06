@@ -25,4 +25,19 @@ collected from client repos into those files.
 
 ## This project
 
+### 2026-11-06 · Template tests fail in a freshly set-up client repo
+- Area: ci
+- Scope: template-candidate
+- Symptom: The first push after `pnpm new-project` failed the staging workflow at `pnpm test`, in 4 test files.
+- Cause: The tests assume the template's own state.
+  - `loader.check.mjs` and `environment-switcher.spec.mjs` hard-code `localhost:3000`, but new-project writes the client's own dev port (3666 here) into `loader.html`.
+  - `progress.check.mjs` expects an empty `progress.json` and copies it into its throwaway repos. A client's file holds its plans, so a second "plan add" is refused.
+  - `update-skills.check.mjs` reads `CHANGELOG.md`, which new-project removes as template-only.
+- Fix:
+  - Read the dev port back from `loader.html`.
+  - Seed the progress test repos with `empty()`, and skip the empty-seed test in client repos.
+  - Skip the changelog test when there is no `CHANGELOG.md`, the same way `new-project.check.mjs` skips once set up.
+- Status: open (fixed here, not upstreamed)
+- Found by: claude
+
 <!-- Add new entries here, newest first. -->
