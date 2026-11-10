@@ -1,40 +1,60 @@
-# Rollback — custom code as it is live (2026-11-06)
+# Rollback — custom code as it is live (2026-11-10)
 
-Captured word for word from the HTML that https://www.buildroncelli.com serves on the 16 key pages in `webflow-build.config.json`, before any change from this repo. **Read from the served pages, not from the Webflow settings.** Whether a block sits in Site head code, Site footer code, a page's code or an Embed is inferred from where it lands in the page. Before the parity release, check this against Site settings › Custom code and the Embeds (the Webflow MCP can read them), and correct it.
+Every piece of custom code on www.buildroncelli.com, word for word, before any change from this repo.
 
-Restore: paste each block back where it was, then publish. A Webflow backup taken before any change (Site settings › Backups) is the other way back: [Person], name it with the date.
+- **Site and page code:** read from Webflow through the `webflow-roncelli` connection on 2026-11-10 (Site settings › Custom code, and each page's settings).
+- **Embeds:** read from the published pages. The connection can't list Embed elements without the Designer open.
+- **Live and staging match:** the site head and footer code is byte-identical on www.buildroncelli.com (published 2026-10-23) and roncelli.webflow.io (published 2026-11-09). This file therefore restores both.
+- **Supersedes:** the 2026-11-06 version, which was read from the published pages only. That version listed Lenis and its init script as loaded; they are commented out in the footer code.
 
-Scripts loaded from Webflow's own CDN (jQuery, webflow.js chunks) are left out. Webflow adds them itself.
+## How to roll back
 
-## Third-party and library scripts
+1. **[Person]** Restore the Webflow backup taken before the change (Site settings › Backups). This brings back everything below together. Or restore only the blocks that changed:
+2. **Site code:** paste each block below back into Site settings › Custom code (Head code / Footer code), replacing what is there.
+3. **Page code:** paste into Page settings › Custom code for each page listed.
+4. **Embeds:** restore in the Designer, in the element named under each one.
+5. **Publish**, then run `pnpm wf:baseline compare --live --dir .webflow-build/baselines`. The noise floor is 0%, so every difference is real.
 
-- `head`: `<script src="https://www.google.com/recaptcha/api.js">`
-- `head`: `<script src="https://www.googletagmanager.com/gtag/js?id=G-YZ52HY5MDF">`
-- `head`: `<script src="https://analytics.ahrefs.com/analytics.js" data-key="QpJYWmVEhYv1W9ABdVuGcw" async>`
-- `head`: `<script src="https://analytics.ahrefs.com/analytics.js" data-key="MvuhbjO9PAx0acRXKKx8jQ" async>` (the second Ahrefs install: action list A19 / D2)
-- `body`: `<script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=695eb0569a00fe00b842a8fb">`
-- `body`: `<script src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-numbercount@1/numbercount.js">`
-- `body`: `<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.5/dist/lenis.min.js">`
-- `body`: `<script src="https://js.hs-scripts.com/50074073.js">`
-- `head`: `<script src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js">` (on /leadership, /news, /news/a-fresh-look-for-roncellis-60th-year, /project/beacon-park-detroit, /what-we-build)
-- `head`: `<script src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsselect@1/cmsselect.js">` (on /news)
+## Site settings › Head code
 
-## Sitewide inline code (on every key page)
+2116 characters.
 
-### `<script>`, 162 characters, in `<head>` (Site or page head code)
-```js
-window.dataLayer = window.dataLayer || [];
+```html
+<!-- Google Tag(s) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YZ52HY5MDF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
   function gtag() {
     dataLayer.push(arguments);
   }
   gtag('js', new Date());
 
   gtag('config', 'G-YZ52HY5MDF');
-```
+</script>
 
-### `<style>`, 619 characters, in `<head>` (Site or page head code)
-```html
-/* Hiding Dev Supports */
+<!-- Brand Vision's Ahrefs -->
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="QpJYWmVEhYv1W9ABdVuGcw" async></script>
+<!-- Tony's Ahrefs -->
+<script src="https://analytics.ahrefs.com/analytics.js" data-key="MvuhbjO9PAx0acRXKKx8jQ" async></script>
+
+<!-- Global | Webflow Head Custom Code | Start -->
+<link rel="preconnect" href="https://unpkg.com" />
+<link rel="preconnect" href="https://cdn.prod.website-files.com" />
+
+<!-- Disables Zoom on Input Fields -->
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<!-- Theme Color Browser -->
+<meta name="theme-color" content="#030307" />
+
+<!-- Finsweet Attributes -->
+
+<!-- Preloading Fonts -->
+<link rel="preload" href="https://cdn.prod.website-files.com/695eb0569a00fe00b842a8fb/695eb2143d5e2f3431b80a5f_SourceSerif4-VariableFont_opsz%2Cwght.ttf" as="font" type="font/ttf" crossorigin="anonymous" />
+<link rel="preload" href="https://cdn.prod.website-files.com/695eb0569a00fe00b842a8fb/695eb248e0f9005377d8c9ac_MYRIADPRO-REGULAR.OTF" as="font" type="font/otf" crossorigin="anonymous" />
+
+<style>
+  /* Hiding Dev Supports */
   .g-embed-code,
   .g-grid-guide,
   .w-webflow-badge,
@@ -65,464 +85,24 @@ window.dataLayer = window.dataLayer || [];
   * {
     content-visibility: visible !important;
   }
+</style>
+
+<!-- [Attributes by Finsweet] Number Count -->
+
+<!-- Global | Webflow Head Custom Code | End -->
 ```
 
-### `<style>`, 10210 characters, in `<body>` (Site footer code, page footer code or an Embed)
+## Site settings › Footer code
+
+26894 characters. Lenis and its init script are inside an HTML comment, so they don't run.
+
 ```html
-/* ================================================
-Blankboard Studio – Global Styles
-================================================ */
-
-  /* ------------------------------------------------
-01. Responsive Scaling System by Blankboard Studio
------------------------------------------------- */
-
-  /* Base Container & Font Scaling */
-  :root {
-    --size-unit: 16;
-    --size-container-ideal: 1680;
-    --size-container-min: 1280px;
-    --size-container-max: 1680px;
-    --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
-    --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
-    font-size: var(--size-font);
-  }
-
-  /* Tablet */
-  @media screen and (max-width: 991px) {
-    :root {
-      --size-container-ideal: 834;
-      --size-container-min: 768px;
-      --size-container-max: 991px;
-    }
-  }
-
-  /* Mobile Landscape */
-  @media screen and (max-width: 767px) {
-    :root {
-      --size-container-ideal: 430;
-      --size-container-min: 480px;
-      --size-container-max: 767px;
-    }
-  }
-
-  /* Mobile Portrait */
-  @media screen and (max-width: 479px) {
-    :root {
-      --size-container-ideal: 430;
-      --size-container-min: 320px;
-      --size-container-max: 428px;
-    }
-  }
-
-  /* ------------------------------------------------
-    02. Color System: OKLCH and Display-P3 Fallback
-    ------------------------------------------------ */
-
-  @supports (color: oklch(50% 0.2 280)) {
-    :root {
-    }
-  }
-
-  @supports (color: color(display-p3 1 0 0)) {
-    :root {
-    }
-  }
-
-  /* ------------------------------------------------
-    03. Reset & Box Model
-    ------------------------------------------------ */
-
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeSpeed;
-    text-size-adjust: 100%;
-    text-decoration-skip-ink: auto;
-    text-decoration-thickness: 8%;
-    text-underline-offset: -8%;
-    text-underline-position: from-font;
-  }
-
-  /* html {
-    scroll-behavior: initial;
-    scrollbar-width: none;
-    -webkit-font-smoothing: antialiased;
-  } */
-
-  body {
-    width: 100vw;
-    font-feature-settings:
-      'liga' 1,
-      'calt' 1;
-    -ms-overflow-style: none;
-  }
-
-  /* body::-webkit-scrollbar,
-  body ::-webkit-scrollbar {
-    display: none;
-  } */
-
-  svg {
-    max-width: none;
-    height: auto;
-    box-sizing: border-box;
-    vertical-align: middle;
-  }
-
-  a {
-    color: inherit;
-  }
-
-  textarea {
-    resize: none;
-  }
-
-  /* ------------------------------------------------
-    04. Typography Utilities
-    ------------------------------------------------ */
-
-  .rte > :first-child {
-    margin-top: 0;
-  }
-
-  .rte > :last-child {
-    margin-bottom: 0;
-  }
-
-  .rte > div:first-child > :first-child {
-    margin-top: 0;
-  }
-
-  .rte > div:first-child > :last-child {
-    margin-bottom: 0;
-  }
-
-  /* ------------------------------------------------
-    05. Utility Attributes
-    ------------------------------------------------ */
-
-  :root {
-    --truncated-line: 1;
-  }
-
-  [scroll-show='false'] {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-
-  [scroll-show='false']::-webkit-scrollbar {
-    display: none;
-  }
-
-  [data-truncate] {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-wrap: break-word;
-    -webkit-line-clamp: var(--truncated-line);
-  }
-
-  ::selection {
-    background-color: color-mix(in srgb, currentColor 12%, transparent);
-    color: var(--_colors---accent);
-    text-shadow: none;
-  }
-
-  ::-moz-selection {
-    background-color: color-mix(in srgb, currentColor 12%, transparent);
-    color: var(--_colors---accent);
-    text-shadow: none;
-  }
-
-  [data-theme='dark'] {
-    background-color: var(--_colors---bg--dark);
-    color: var(--_colors---text-color--light);
-  }
-
-  [data-theme='dark-transparent'] {
-    color: var(--_colors---text-color--light) !important;
-  }
-
-  /* ------------------------------------------------
-    06. Interactive Link Effects
-    ------------------------------------------------ */
-
-  .link-underline {
-    position: relative;
-  }
-
-  .link-underline::after {
-    content: '';
-    position: absolute;
-    top: 92%;
-    left: 0%;
-    height: 1px;
-    width: 0%;
-    background: currentColor;
-    transition: width 735ms cubic-bezier(0.65, 0.05, 0, 1);
-  }
-
-  .link-underline:hover::after {
-    width: 100%;
-  }
-
-  .link-underline:not(:hover)::after {
-    left: auto;
-    right: 0%;
-    width: 0%;
-  }
-
-  .inline-link-underline {
-    position: relative;
-  }
-
-  .inline-link-underline::after {
-    content: '';
-    position: absolute;
-    top: 92%;
-    left: 0%;
-    height: 1px;
-    width: 100%;
-    background: currentColor;
-    opacity: 0.48;
-    transition: opacity 735ms cubic-bezier(0.65, 0.05, 0, 1);
-  }
-
-  .inline-link-underline:hover::after {
-    opacity: 1;
-  }
-
-  /* ------------------------------------------------
-    07. Animations
-    ------------------------------------------------ */
-
-  :root {
-    --loop-x-duration: 60s;
-  }
-
-  @keyframes loopX {
-    from {
-      transform: translateX(0%);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-
-  @keyframes loopY {
-    from {
-      transform: translateY(0%);
-    }
-    to {
-      transform: translateY(-100%);
-    }
-  }
-
-  .loop-animate-x {
-    animation: loopX var(--loop-x-duration) linear infinite;
-  }
-
-  .loop-animate-y {
-    animation: loopY 32s linear infinite;
-  }
-
-  .loop-animate-y.reverse {
-    animation: loopY 32s linear infinite reverse;
-  }
-
-  .svg-animate-line {
-    stroke-dasharray: 10 10 !important;
-    animation: svgDash 8s linear infinite;
-  }
-
-  .svg-animate-line.reverse {
-    animation: svgDash 8s linear infinite reverse;
-  }
-
-  @keyframes svgDash {
-    to {
-      stroke-dashoffset: 600;
-    }
-  }
-
-  /* ------------------------------------------------
-    08. Components / Patterns
-    ------------------------------------------------ */
-
-  :root {
-    --avatar-border: var(--_colors---light);
-  }
-
-  .s-wrapper::before,
-  .s-wrapper::after,
-  .w-container::before,
-  .w-container::after {
-    display: none;
-  }
-
-  .is_bullet-point {
-    height: 1lh !important;
-    min-height: 1lh !important;
-  }
-
-  .g-nav-group.is-shrunk {
-    background-color: var(--_colors---bg--white);
-    color: var(--_colors---text-color--dark);
-    margin-top: var(--global--nav-margin-on-scroll);
-    box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.1);
-  }
-
-  .g-nav-group.is-shrunk .s-g-navigation {
-    height: 4em;
-  }
-
-  .g-nav-group.is-shrunk .g-nav-overshoot {
-    opacity: 1;
-  }
-
-  select.form-text-field,
-  select.filter-select {
-    color: currentColor;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7.99952%208.78068L11.2995%205.48068L12.2422%206.42335L7.99952%2010.666L3.75685%206.42335L4.70019%205.48068L8.00019%208.78068L7.99952%208.78068Z%22%20fill%3D%22currentColor%22%2F%3E%3C%2Fsvg%3E');
-    background-repeat: no-repeat;
-    background-position: right 1em center;
-    background-size: 1em;
-    cursor: pointer;
-  }
-
-  .s-bg-grid {
-    --grid-size: 2em;
-    --grid-line: 1px;
-    --grid-color: color-mix(in srgb, currentColor 5%, transparent);
-    background-image: linear-gradient(to right, var(--grid-color) 0, var(--grid-color) var(--grid-line), transparent var(--grid-line), transparent var(--grid-size)), linear-gradient(to bottom, var(--grid-color) 0, var(--grid-color) var(--grid-line), transparent var(--grid-line), transparent var(--grid-size));
-    background-size:
-      var(--grid-size) var(--grid-size),
-      var(--grid-size) var(--grid-size);
-    background-position:
-      center center,
-      center center;
-    background-repeat: repeat, repeat;
-  }
-
-  /* Desktop — clip replaces the old mask entirely */
-  [data-section-mask-left] {
-    clip-path: path('M 96 0 C 91 0, 87 1.55, 83 4.43 L 0 80 L 0 99999 L 99999 99999 L 99999 0 Z');
-  }
-
-  /* Tablet */
-  @media (max-width: 1024px) {
-    [data-section-mask-left] {
-      clip-path: none;
-    }
-  }
-
-  /* Mobile landscape */
-  @media (orientation: landscape) and (max-width: 896px) {
-    [data-section-mask-left] {
-      clip-path: none;
-    }
-  }
-
-  /* Mobile */
-  @media (max-width: 767px) {
-    [data-section-mask-left] {
-      clip-path: none;
-    }
-  }
-  .mask-icon.is-orange {
-    background-color: #c34532;
-  }
-
-  .news-cms-list:hover .news-cms-item {
-    opacity: 0.5;
-  }
-
-  .g-nav-drop-content [data-image-index] {
-    opacity: 0;
-    transition: opacity 200ms ease;
-  }
-
-  .g-nav-drop-content [data-image-index='1'] {
-    opacity: 1;
-  }
-  /* ---- Accordion CSS (paste this block into a Webflow embed) ---- */
-  .fs-acc-panel {
-    display: grid;
-    grid-template-rows: 0fr;
-    transition: grid-template-rows 0.4s cubic-bezier(0.65, 0.05, 0, 1);
-  }
-  .fs-acc-panel-inner {
-    min-height: 0;
-    overflow: hidden;
-  }
-  .fs-acc-item.is-open .fs-acc-panel {
-    grid-template-rows: 1fr;
-  }
-
-  .fs-acc-icon-w {
-    transition:
-      background-color 0.3s,
-      color 0.3s;
-  }
-  .fs-acc-icon-line.is-vert {
-    transition: transform 0.3s;
-  }
-  .fs-acc-item.is-open .fs-acc-icon-w {
-    background-color: var(--_colors---bg--primary);
-    color: #fff;
-  }
-  .fs-acc-item.is-open .fs-acc-icon-line.is-vert {
-    transform: rotate(0deg);
-  }
-
-  .fs-acc-toggle:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 4px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .fs-acc-panel,
-    .fs-acc-icon-w,
-    .fs-acc-icon-line.is-vert {
-      transition: none;
-    }
-  }
-
-  .filter-radio-button.w--redirected-checked ~ .filter-radio-label {
-    color: white;
-  }
-
-  .news-cms-item.is-insights:nth-child(3n) {
-    border-right: none !important;
-  }
-  @media screen and (width < 991px) {
-    .news-cms-item.is-insights:nth-child(2n) {
-      border-right: none !important;
-    }
-  }
-  @media screen and (width < 768px) {
-    .news-cms-item.is-insights {
-      border-right: none !important;
-    }
-  }
-```
-
-### `<script>`, 40 characters, in `<body>` (Site footer code, page footer code or an Embed)
-```js
-document.write(new Date().getFullYear())
-```
-
-### `<script>`, 395 characters, in `<body>` (Site footer code, page footer code or an Embed)
-```js
-if (!window.matchMedia('(pointer: coarse)').matches && Webflow.env('editor') === undefined) {
+<script src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-numbercount@1/numbercount.js"></script>
+
+<!-- Lenis Smooth Scrolling 
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.5/dist/lenis.min.js"></script>
+<script>
+  if (!window.matchMedia('(pointer: coarse)').matches && Webflow.env('editor') === undefined) {
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -537,11 +117,10 @@ if (!window.matchMedia('(pointer: coarse)').matches && Webflow.env('editor') ===
 
     requestAnimationFrame(raf);
   }
-```
+</script>-->
 
-### `<script>`, 2022 characters, in `<body>` (Site footer code, page footer code or an Embed)
-```js
-(function () {
+<script>
+  (function () {
     const TZ = 'America/Toronto';
     const pad2 = (n) => String(n).padStart(2, '0');
 
@@ -596,11 +175,11 @@ if (!window.matchMedia('(pointer: coarse)').matches && Webflow.env('editor') ===
     tick();
     setInterval(tick, 1000);
   })();
-```
+</script>
 
-### `<script defer>`, 24166 characters, in `<body>` (Site footer code, page footer code or an Embed)
-```js
-/**
+<!-- Code Sandbox - Script -->
+<script defer>
+  /**
    * File: roncelli-main.js
    *
    * Sections:
@@ -1314,16 +893,18 @@ if (!window.matchMedia('(pointer: coarse)').matches && Webflow.env('editor') ===
       }
     });
   })();
+</script>
 ```
 
+## Page settings › Custom code
 
-## Page and template code (only on some pages)
+Pages not listed here have empty head and footer code (checked: all 35 pages).
 
-### `<script>`, 1233 characters, in `<body>` (Site footer code, page footer code or an Embed)
-Only on: /contact
+### Contact (/contact) · footer
 
-```js
-var Webflow = Webflow || [];
+```html
+<script>
+  var Webflow = Webflow || [];
   Webflow.push(() => {
     function changeTab(shouldScroll = false) {
       const hashSegments = window.location.hash.substring(1).split('/');
@@ -1363,13 +944,603 @@ var Webflow = Webflow || [];
 
     window.addEventListener('hashchange', () => { changeTab() });
   });
+</script>
 ```
 
-### `<style>`, 352 characters, in `<body>` (Site footer code, page footer code or an Embed)
-Only on: /project/beacon-park-detroit
+### News (/news) · head
 
 ```html
-.wwb-tabs-menu {
+<!-- Finsweet Attributes -->
+<script async type="module"
+src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js"
+fs-list
+></script>
+<!-- [Attributes by Finsweet] CMS Select -->
+<script async src="https://cdn.jsdelivr.net/npm/@finsweet/attributes-cmsselect@1/cmsselect.js"></script>
+```
+
+### What We Build (/what-we-build) · head
+
+```html
+<!-- Finsweet Attributes -->
+<script async type="module"
+src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js"
+fs-list
+></script>
+```
+
+### Leadership (/leadership) · head
+
+```html
+<!-- Finsweet Attributes -->
+<script async type="module"
+src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js"
+fs-smartlightbox
+></script>
+```
+
+### Projects Template (/project/*) · head
+
+```html
+<!-- Finsweet Attributes -->
+<script async type="module"
+src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js"
+fs-socialshare
+></script>
+```
+
+### Projects Template (/project/*) · footer
+
+```html
+<script>
+  (function () {
+    function buildMailto() {
+      var url = window.location.href.split("#")[0];
+
+      var subject = "Check this article out";
+      var body = "I thought you’d like this:\n\n" + url;
+
+      var mailto =
+          "mailto:?" +
+          "subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(body);
+
+      return mailto;
+    }
+
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest("#share-email");
+      if (!link) return;
+
+      e.preventDefault();
+      window.location.href = buildMailto();
+    });
+  })();
+</script>
+
+```
+
+### News Template (/news/*) · head
+
+```html
+<!-- Finsweet Attributes -->
+<script async type="module"
+src="https://cdn.jsdelivr.net/npm/@finsweet/attributes@2/attributes.js"
+fs-socialshare
+></script>
+```
+
+### News Template (/news/*) · footer
+
+```html
+<script>
+  (function () {
+    function buildMailto() {
+      var url = window.location.href.split("#")[0];
+
+      var subject = "Check this article out";
+      var body = "I thought you’d like this:\n\n" + url;
+
+      var mailto =
+          "mailto:?" +
+          "subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(body);
+
+      return mailto;
+    }
+
+    document.addEventListener("click", function (e) {
+      var link = e.target.closest("#share-email");
+      if (!link) return;
+
+      e.preventDefault();
+      window.location.href = buildMailto();
+    });
+  })();
+</script>
+
+```
+
+### Chatbot Leadership Preview (staging only, password-protected) · footer
+
+The comment is cut off (`scr` with no closing `-->`), so the browser treats everything after it on the page as a comment. The page is password-protected on staging and not published live. The Zendesk key matches the chatbot Roncelli plans to launch.
+
+```html
+<!-- Start of roncelli Zendesk Widget script -->
+<script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=ac03e8c6-6099-4e04-85a4-a5c59e324925"></script>
+<!-- End of roncelli Zendesk Widget scr
+```
+
+## Embeds (read from the published pages)
+
+### Global style Embed, on every page (likely in the nav or footer component)
+
+Seen on: /contact, /, /leadership, /news, /news/a-fresh-look-for-roncellis-60th-year, /project/wagner-place-development, /what-we-build
+
+```html
+<style>
+  /* ================================================
+Blankboard Studio – Global Styles
+================================================ */
+
+  /* ------------------------------------------------
+01. Responsive Scaling System by Blankboard Studio
+------------------------------------------------ */
+
+  /* Base Container & Font Scaling */
+  :root {
+    --size-unit: 16;
+    --size-container-ideal: 1680;
+    --size-container-min: 1280px;
+    --size-container-max: 1680px;
+    --size-container: clamp(var(--size-container-min), 100vw, var(--size-container-max));
+    --size-font: calc(var(--size-container) / (var(--size-container-ideal) / var(--size-unit)));
+    font-size: var(--size-font);
+  }
+
+  /* Tablet */
+  @media screen and (max-width: 991px) {
+    :root {
+      --size-container-ideal: 834;
+      --size-container-min: 768px;
+      --size-container-max: 991px;
+    }
+  }
+
+  /* Mobile Landscape */
+  @media screen and (max-width: 767px) {
+    :root {
+      --size-container-ideal: 430;
+      --size-container-min: 480px;
+      --size-container-max: 767px;
+    }
+  }
+
+  /* Mobile Portrait */
+  @media screen and (max-width: 479px) {
+    :root {
+      --size-container-ideal: 430;
+      --size-container-min: 320px;
+      --size-container-max: 428px;
+    }
+  }
+
+  /* ------------------------------------------------
+    02. Color System: OKLCH and Display-P3 Fallback
+    ------------------------------------------------ */
+
+  @supports (color: oklch(50% 0.2 280)) {
+    :root {
+    }
+  }
+
+  @supports (color: color(display-p3 1 0 0)) {
+    :root {
+    }
+  }
+
+  /* ------------------------------------------------
+    03. Reset & Box Model
+    ------------------------------------------------ */
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeSpeed;
+    text-size-adjust: 100%;
+    text-decoration-skip-ink: auto;
+    text-decoration-thickness: 8%;
+    text-underline-offset: -8%;
+    text-underline-position: from-font;
+  }
+
+  /* html {
+    scroll-behavior: initial;
+    scrollbar-width: none;
+    -webkit-font-smoothing: antialiased;
+  } */
+
+  body {
+    width: 100vw;
+    font-feature-settings:
+      'liga' 1,
+      'calt' 1;
+    -ms-overflow-style: none;
+  }
+
+  /* body::-webkit-scrollbar,
+  body ::-webkit-scrollbar {
+    display: none;
+  } */
+
+  svg {
+    max-width: none;
+    height: auto;
+    box-sizing: border-box;
+    vertical-align: middle;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  textarea {
+    resize: none;
+  }
+
+  /* ------------------------------------------------
+    04. Typography Utilities
+    ------------------------------------------------ */
+
+  .rte > :first-child {
+    margin-top: 0;
+  }
+
+  .rte > :last-child {
+    margin-bottom: 0;
+  }
+
+  .rte > div:first-child > :first-child {
+    margin-top: 0;
+  }
+
+  .rte > div:first-child > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* ------------------------------------------------
+    05. Utility Attributes
+    ------------------------------------------------ */
+
+  :root {
+    --truncated-line: 1;
+  }
+
+  [scroll-show='false'] {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  [scroll-show='false']::-webkit-scrollbar {
+    display: none;
+  }
+
+  [data-truncate] {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    -webkit-line-clamp: var(--truncated-line);
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, currentColor 12%, transparent);
+    color: var(--_colors---accent);
+    text-shadow: none;
+  }
+
+  ::-moz-selection {
+    background-color: color-mix(in srgb, currentColor 12%, transparent);
+    color: var(--_colors---accent);
+    text-shadow: none;
+  }
+
+  [data-theme='dark'] {
+    background-color: var(--_colors---bg--dark);
+    color: var(--_colors---text-color--light);
+  }
+
+  [data-theme='dark-transparent'] {
+    color: var(--_colors---text-color--light) !important;
+  }
+
+  /* ------------------------------------------------
+    06. Interactive Link Effects
+    ------------------------------------------------ */
+
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::after {
+    content: '';
+    position: absolute;
+    top: 92%;
+    left: 0%;
+    height: 1px;
+    width: 0%;
+    background: currentColor;
+    transition: width 735ms cubic-bezier(0.65, 0.05, 0, 1);
+  }
+
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  .link-underline:not(:hover)::after {
+    left: auto;
+    right: 0%;
+    width: 0%;
+  }
+
+  .inline-link-underline {
+    position: relative;
+  }
+
+  .inline-link-underline::after {
+    content: '';
+    position: absolute;
+    top: 92%;
+    left: 0%;
+    height: 1px;
+    width: 100%;
+    background: currentColor;
+    opacity: 0.48;
+    transition: opacity 735ms cubic-bezier(0.65, 0.05, 0, 1);
+  }
+
+  .inline-link-underline:hover::after {
+    opacity: 1;
+  }
+
+  /* ------------------------------------------------
+    07. Animations
+    ------------------------------------------------ */
+
+  :root {
+    --loop-x-duration: 60s;
+  }
+
+  @keyframes loopX {
+    from {
+      transform: translateX(0%);
+    }
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes loopY {
+    from {
+      transform: translateY(0%);
+    }
+    to {
+      transform: translateY(-100%);
+    }
+  }
+
+  .loop-animate-x {
+    animation: loopX var(--loop-x-duration) linear infinite;
+  }
+
+  .loop-animate-y {
+    animation: loopY 32s linear infinite;
+  }
+
+  .loop-animate-y.reverse {
+    animation: loopY 32s linear infinite reverse;
+  }
+
+  .svg-animate-line {
+    stroke-dasharray: 10 10 !important;
+    animation: svgDash 8s linear infinite;
+  }
+
+  .svg-animate-line.reverse {
+    animation: svgDash 8s linear infinite reverse;
+  }
+
+  @keyframes svgDash {
+    to {
+      stroke-dashoffset: 600;
+    }
+  }
+
+  /* ------------------------------------------------
+    08. Components / Patterns
+    ------------------------------------------------ */
+
+  :root {
+    --avatar-border: var(--_colors---light);
+  }
+
+  .s-wrapper::before,
+  .s-wrapper::after,
+  .w-container::before,
+  .w-container::after {
+    display: none;
+  }
+
+  .is_bullet-point {
+    height: 1lh !important;
+    min-height: 1lh !important;
+  }
+
+  .g-nav-group.is-shrunk {
+    background-color: var(--_colors---bg--white);
+    color: var(--_colors---text-color--dark);
+    margin-top: var(--global--nav-margin-on-scroll);
+    box-shadow: 0 4px 40px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .g-nav-group.is-shrunk .s-g-navigation {
+    height: 4em;
+  }
+
+  .g-nav-group.is-shrunk .g-nav-overshoot {
+    opacity: 1;
+  }
+
+  select.form-text-field,
+  select.filter-select {
+    color: currentColor;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M7.99952%208.78068L11.2995%205.48068L12.2422%206.42335L7.99952%2010.666L3.75685%206.42335L4.70019%205.48068L8.00019%208.78068L7.99952%208.78068Z%22%20fill%3D%22currentColor%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 1em center;
+    background-size: 1em;
+    cursor: pointer;
+  }
+
+  .s-bg-grid {
+    --grid-size: 2em;
+    --grid-line: 1px;
+    --grid-color: color-mix(in srgb, currentColor 5%, transparent);
+    background-image: linear-gradient(to right, var(--grid-color) 0, var(--grid-color) var(--grid-line), transparent var(--grid-line), transparent var(--grid-size)), linear-gradient(to bottom, var(--grid-color) 0, var(--grid-color) var(--grid-line), transparent var(--grid-line), transparent var(--grid-size));
+    background-size:
+      var(--grid-size) var(--grid-size),
+      var(--grid-size) var(--grid-size);
+    background-position:
+      center center,
+      center center;
+    background-repeat: repeat, repeat;
+  }
+
+  /* Desktop — clip replaces the old mask entirely */
+  [data-section-mask-left] {
+    clip-path: path('M 96 0 C 91 0, 87 1.55, 83 4.43 L 0 80 L 0 99999 L 99999 99999 L 99999 0 Z');
+  }
+
+  /* Tablet */
+  @media (max-width: 1024px) {
+    [data-section-mask-left] {
+      clip-path: none;
+    }
+  }
+
+  /* Mobile landscape */
+  @media (orientation: landscape) and (max-width: 896px) {
+    [data-section-mask-left] {
+      clip-path: none;
+    }
+  }
+
+  /* Mobile */
+  @media (max-width: 767px) {
+    [data-section-mask-left] {
+      clip-path: none;
+    }
+  }
+  .mask-icon.is-orange {
+    background-color: #c34532;
+  }
+
+  .news-cms-list:hover .news-cms-item {
+    opacity: 0.5;
+  }
+
+  .g-nav-drop-content [data-image-index] {
+    opacity: 0;
+    transition: opacity 200ms ease;
+  }
+
+  .g-nav-drop-content [data-image-index='1'] {
+    opacity: 1;
+  }
+  /* ---- Accordion CSS (paste this block into a Webflow embed) ---- */
+  .fs-acc-panel {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.65, 0.05, 0, 1);
+  }
+  .fs-acc-panel-inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+  .fs-acc-item.is-open .fs-acc-panel {
+    grid-template-rows: 1fr;
+  }
+
+  .fs-acc-icon-w {
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+  }
+  .fs-acc-icon-line.is-vert {
+    transition: transform 0.3s;
+  }
+  .fs-acc-item.is-open .fs-acc-icon-w {
+    background-color: var(--_colors---bg--primary);
+    color: #fff;
+  }
+  .fs-acc-item.is-open .fs-acc-icon-line.is-vert {
+    transform: rotate(0deg);
+  }
+
+  .fs-acc-toggle:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fs-acc-panel,
+    .fs-acc-icon-w,
+    .fs-acc-icon-line.is-vert {
+      transition: none;
+    }
+  }
+
+  .filter-radio-button.w--redirected-checked ~ .filter-radio-label {
+    color: white;
+  }
+
+  .news-cms-item.is-insights:nth-child(3n) {
+    border-right: none !important;
+  }
+  @media screen and (width < 991px) {
+    .news-cms-item.is-insights:nth-child(2n) {
+      border-right: none !important;
+    }
+  }
+  @media screen and (width < 768px) {
+    .news-cms-item.is-insights {
+      border-right: none !important;
+    }
+  }
+</style>
+```
+
+### Copyright year, in the footer, on every page
+
+Seen on: /contact, /, /leadership, /news, /news/a-fresh-look-for-roncellis-60th-year, /project/wagner-place-development, /what-we-build
+
+```html
+<script>document.write(new Date().getFullYear())</script>
+```
+
+### Projects Template: tabs menu style
+
+Seen on: /project/wagner-place-development
+
+```html
+<style>
+  .wwb-tabs-menu {
     overflow-x: auto;
     overflow-y: visible;
     cursor: grab;
@@ -1386,13 +1557,16 @@ Only on: /project/beacon-park-detroit
     cursor: grabbing;
     user-select: none;
   }
+</style>
 ```
 
-### `<script>`, 1296 characters, in `<body>` (Site footer code, page footer code or an Embed)
-Only on: /project/beacon-park-detroit
+### Projects Template: tabs menu drag-scroll script
 
-```js
-(function () {
+Seen on: /project/wagner-place-development
+
+```html
+<script>
+  (function () {
     const menu = document.querySelector('.wwb-tabs-menu');
     if (!menu) return;
 
@@ -1435,34 +1609,5 @@ Only on: /project/beacon-park-detroit
 
     menu.addEventListener('dragstart', (e) => e.preventDefault());
   })();
+</script>
 ```
-
-### `<script>`, 592 characters, in `<body>` (Site footer code, page footer code or an Embed)
-Only on: /news/a-fresh-look-for-roncellis-60th-year, /project/beacon-park-detroit
-
-```js
-(function () {
-    function buildMailto() {
-      var url = window.location.href.split("#")[0];
-
-      var subject = "Check this article out";
-      var body = "I thought you’d like this:\n\n" + url;
-
-      var mailto =
-          "mailto:?" +
-          "subject=" + encodeURIComponent(subject) +
-          "&body=" + encodeURIComponent(body);
-
-      return mailto;
-    }
-
-    document.addEventListener("click", function (e) {
-      var link = e.target.closest("#share-email");
-      if (!link) return;
-
-      e.preventDefault();
-      window.location.href = buildMailto();
-    });
-  })();
-```
-

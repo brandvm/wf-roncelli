@@ -15,7 +15,7 @@
   },
   "todos": [
     {"id":"t-26b1b854","text":"Decide: cookie consent banner needed? (GA4 runs with no banner)","done":false},
-    {"id":"t-8bca7633","text":"Decide: which of the two Ahrefs keys is Roncelli's","done":false},
+    {"id":"t-8bca7633","text":"Decide: which of the two Ahrefs keys is Roncelli's","done":true},
     {"id":"t-a25aeee4","text":"Decide: which copy of each duplicate project/news item stays (action list B1)","done":true},
     {"id":"t-9df7447a","text":"Approve content fixes in news posts (action list B2–B10)","done":false},
     {"id":"t-b4d8b610","text":"Test-submit every form and confirm notifications arrive","done":false},

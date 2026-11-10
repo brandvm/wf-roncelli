@@ -32,3 +32,63 @@ The monthly check is `webflow-maintenance` › Monthly health check. Each month 
 ## Noise floor (two untouched baseline runs)
 
 2026-11-06, `pnpm wf:baseline compare --live --dir .webflow-build/baselines --threshold 0`, run right after `save` with no change made: all 64 shots matched, 0.0% of pixels changed and the same height (16 pages × 1440, 820, 667, 390). **The noise floor is 0%**, so any difference in a later compare is a real change.
+
+## Inventory, 2026-11-10 (read through `webflow-roncelli`, read-only)
+
+The connection reaches one site: Roncelli `695eb0569a00fe00b842a8fb`.
+
+**Domains and publishing**
+- Domains: www.buildroncelli.com, buildroncelli.com, www.roncelli-inc.com and roncelli-inc.com.
+- Last published: staging on 2026-11-09, the custom domains on 2026-10-23. **Staging is ahead of live.** A live publish sends all of it; confirm with the team first.
+- Custom code is identical on both, so the gap is Designer or CMS changes.
+
+**Pages: 35**
+- 24 static pages.
+- 9 CMS templates.
+- 404 and Password utility pages.
+
+Not on the live site:
+- Drafts: Facilities Management, Our Technology, Style Guide.
+- Templates set not to publish: Authors, Jobs, Leaderships, Partners, Technologies, Project Portfolio, Timer Gallery.
+- `/chatbot-leadership-preview`: published to staging only, password-protected, and testing the Zendesk widget.
+
+**CMS: 11 collections**
+- **Projects:** 88 items. `industry` is a single, required reference to Markets. That single reference is why the 10 duplicates exist (DECISIONS 2026-11-10).
+- **Markets:** 10 items.
+- **News:** 190 items.
+- Also Leaderships, Jobs, Authors, FAQs, and four collections marked [Not Published].
+
+**Custom code** (full text in ROLLBACK.md)
+- **Site head:**
+  - GA4.
+  - Two Ahrefs tags, labelled "Brand Vision's" and "Tony's", so **both are intentional**.
+  - Preconnects and font preloads.
+  - `maximum-scale=1` viewport (comment: "Disables Zoom on Input Fields").
+  - A style block.
+- **Site footer:**
+  - Finsweet number count.
+  - Lenis (commented out, not running).
+  - The countdown timer.
+  - `roncelli-main.js` (24 KB): Swiper lazy-loader, nav shrink, nav hover images, form guard, accordion.
+- **Page code:**
+  - Contact: tab hash script.
+  - News, What We Build, Leadership: Finsweet Attributes v2 (list, smart lightbox).
+  - News: also cmsselect v1.
+  - Project and News templates: social share and mailto script.
+- **Embeds:**
+  - Global styles, likely inside the `G | Embed Code` component (26 instances).
+  - Copyright year.
+  - Project template: tabs style and drag-scroll script.
+- **reCAPTCHA** isn't in the custom code. Webflow adds it because spam protection is on for the forms. Action list A6 changes there, not in code.
+
+**Components: 11**
+- Navigation (24 instances), Footer (25), Footer CTA (19), General Inquiry Form (21), Button (97), Accordion (4), Map (2), Embed Code (26).
+- 3 have no instances: Projects Tab, Timer Gallery Group, Timer Gallery W.
+
+**Forms: 4**, across 266 instances
+- Newsletter (Email): in the footer, on 27 pages.
+- Contact — General Inquiry: a component, on 22 pages.
+- Contact — Request Solution: on Contact.
+- "Email Form" on News: actually the Finsweet filter.
+
+Interactions weren't read; they need the Designer open.

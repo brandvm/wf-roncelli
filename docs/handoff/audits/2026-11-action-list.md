@@ -13,12 +13,12 @@ Tags: **SF** = found in the Screaming Frog crawl · **HC** = found in the health
 ### Priority 1 — fix this cycle
 | # | Issue | Where | Fix | Src |
 |---|---|---|---|---|
-| A1 | Pinch-to-zoom disabled (critical WCAG failure) | Every page | Remove `maximum-scale=1` from the viewport meta in the site head code | HC |
+| A1 | Pinch-to-zoom disabled (critical WCAG failure) | Every page | Remove `maximum-scale=1` from the viewport meta in Site settings › Head code. It was added to stop iOS zooming into form fields; do that instead by giving inputs a 16px font size. | HC |
 | A2 | Hidden placeholder content: "Project Title" and lorem ipsum in 5 hidden blocks. Google can still read hidden text. | /how-we-build/self-perform-group | Delete the hidden placeholder blocks, or bind them to real content | SF |
 | A3 | No `<h1>` | / and /news | Make the hero heading an H1 | Both |
 | A4 | Several H1s per page (2–4) | 4 news posts: 2025-cam-showcase-awards-project-of-the-year, cam-annual-meeting-2025, henry-ford-health-…-sterile-compounding-center, largest-general-contractor | Change the extra H1s in the rich text to H2 | Both |
 | A5 | Open Graph tags missing. About 100 CMS pages have no og:title or og:description. 114 have no og:image and 12 have an empty one. | Project and news templates and static pages | Bind the OG title, description and image to CMS fields. Add a default share image to the static pages. | HC |
-| A6 | reCAPTCHA script blocks rendering on every page. Mobile LCP is 5.7–11.5 s and the score is 57–63. | Site head | Load it `async defer`, and only on pages with forms | HC |
+| A6 | reCAPTCHA script blocks rendering on every page. Mobile LCP is 5.7–11.5 s and the score is 57–63. | Every page (Webflow adds it, not custom code) | Webflow injects it because spam protection is on for the forms, and a form is in the footer of every page. Options: keep it and rely on FormGuard, or turn it off and load it only where needed. Decide with the team. | HC |
 | A7 | Oversized images: 560 of 921 are over 100 KB, 201 over 300 KB and 59 over 1 MB (the largest is 3 MB) | Project galleries and market headers | Recompress and resize. Use `webflow-compress-cms-image` for the CMS images. | SF |
 
 ### Priority 2 — accessibility
@@ -39,7 +39,7 @@ Tags: **SF** = found in the Screaming Frog crawl · **HC** = found in the health
 | A16 | Two newest news posts are missing from sitemap.xml: building-certainty-before-construction-begins and corewell-health-taylor-hospital-… | Sitemap | Check that their sitemap setting isn't excluded, then republish | SF |
 | A17 | 49 paginated URLs (`/news?56f66de0_page=…`) can be crawled, and old pages show Webflow's placeholder image | /news pagination | Check the collection list's empty-image fallback. Make sure the canonical points at /news. | SF |
 | A18 | No structured data (JSON-LD) anywhere | Sitewide | Add an Organization block to the home page, Article to the news template, and an optional LocalBusiness block | HC |
-| A19 | Ahrefs analytics installed twice, with two different keys | Site head | Remove one, once the client confirms which (D2) | Both |
+| A19 | ~~Ahrefs analytics installed twice~~ **Resolved 2026-11-10:** the head code labels them "Brand Vision's Ahrefs" and "Tony's Ahrefs", so both are intentional. Nothing to do. | Site head | — | Both |
 | A20 | No security headers (CSP, X-Content-Type-Options, X-Frame-Options, Referrer-Policy) | Every page | Add them in Cloudflare (the site is already behind it). Low priority. | SF |
 | A21 | Long titles: 87 are over 60 characters | Mostly the news template | Shorten the title pattern, e.g. drop "\| Roncelli" on long post titles. Rewording individual titles is C7. | Both |
 | A22 | Privacy policy has no meta description | /legal/privacy-policy | Write one (boilerplate) | HC |
@@ -76,7 +76,7 @@ Tags: **SF** = found in the Screaming Frog crawl · **HC** = found in the health
 | # | Question | Src |
 |---|---|---|
 | D1 | Do you need a cookie consent banner? GA4 runs with no banner today. | HC |
-| D2 | Two Ahrefs tracking codes are installed. Which account is yours? | Both |
+| D2 | ~~Two Ahrefs tracking codes~~ Resolved: one is Brand Vision's and one is Tony's. Don't ask the client. | Both |
 | D3 | For B1 and B8: which duplicate project copy stays, and should the thin old news posts stay live? | Both |
 
 ---
