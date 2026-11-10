@@ -32,17 +32,36 @@ One entry per decision: what was decided, who made it, when, and what it means f
 ### How it gets done (staging first)
 
 1. **[Person]** Take a Webflow backup (Site settings › Backups).
-2. **[Claude, MCP]** Add a `Markets` multi-reference field (→ Markets) to Projects. Fill it on **every** project with its current Market. On the 10 kept items, also add the copy's market.
+2. **[Claude, MCP]** ✅ 2026-11-10: added the `Industries` multi-reference field (slug `industries`, field `2bc42860e4b94a0157239e571a8dc900`, → Markets) to Projects. Filled on all 88 items: each item's current `industry`, plus the copy's industry on the 10 kept items. Checked against the API response: 88 of 88 match. These are staged CMS changes, not published yet.
 3. **[Person, Designer]**
-   - Market template: filter the projects list by `Markets` contains the current Market, instead of `Market` equals it (MANUAL-TODO A).
-   - Project template: replace the single market pill with a nested list sourced from `Markets`. The API can't source a list from a multi-reference field (MANUAL-TODO B).
+   - Market template: filter the projects list by `Industries` contains the current Market, instead of `Market` equals it (MANUAL-TODO A).
+   - Project template: replace the single market pill with a nested list sourced from `Industries`. The API can't source a list from a multi-reference field (MANUAL-TODO B).
    - Keep "Back to all Projects" on the single `Market` field, as the main market.
-4. **[Claude checks]**
+4. **[Claude checks]** ✅ 2026-11-10, staging (published 21:04): all 10 market pages list every project from the snapshot, with no other projects. The copies were still listed alongside their originals until archived. Pills checked on 4 projects: Wagner Place, ZF, Operating Engineers 324 (two pills each) and Beacon Park (one). "Back to all Projects" goes to the main industry.
    - On staging, every market page lists the same projects as before. The copies are replaced by their originals, so the counts stay the same.
    - Before: `audits/data/market-projects-2026-11-10.json`: Advanced Manufacturing 17, Education 5, Energy 4, Entertainment & Hospitality 13, Government & Municipality 6, Healthcare 15, Mission Critical 4, Mixed Use & Multifamily 5, Office & Workplace 12, Parks & Recreation 5.
    - Check any other lists filtered by Market too (the inventory will show them).
-5. **[Claude, MCP]** Archive the 10 copies. **[Person]** Add the 10 301 redirects `/project/<copy>` → `/project/<kept>` (Site settings › Publishing › 301 redirects; MANUAL-TODO C).
+5. **[Claude, MCP]** ✅ 2026-11-10: archived the 10 copies (staged; they leave the site on the next publish). **[Person]** Add the 10 301 redirects `/project/<copy>` → `/project/<kept>` (Site settings › Publishing › 301 redirects; MANUAL-TODO C).
 6. **[Claude checks]** Publish to staging, then to live with the person's OK. Then:
    - The market pages match the snapshot.
    - Each old URL returns 301 to its kept project.
    - The sitemap no longer lists the copies.
+
+### 2026-11-10 · Industry (single reference) to be removed; back link uses the first industry
+
+- **Decided by:** the person (Brand Vision): remove the single `Industry` field so `Industries` is the only source. "Back to all Projects" goes to the project's **first** industry in `Industries`.
+- **Done in the Designer (Claude, through the person's Chrome and the MCP bridge):**
+  - All 10 "other projects" tab lists now filter on `Industries` contains <tab's industry>. Each was read back.
+  - "Back to all Projects" is now a Code Embed inside a Collection List sourced from `Industries`, limited to 1 item, and bound to the industry's Slug (`/market/{Slug}#projects`). The old embed bound to `Industry › Slug` was removed.
+- **Checked on staging (2026-11-10):**
+  - Back links on ZF, Wagner Place, Beacon Park and GM go to their first industry.
+  - The tab counts match the market pages, less the project being viewed.
+  - The home grid shows 9 projects.
+- **Visual differences from live, all expected:**
+  - Home grid: the two re-picked projects sit in different positions.
+  - Healthcare: two projects with the same Sort Order (3) swapped places.
+  - Project tabs: merged originals now sort by their own Sort Order.
+- **Done 2026-11-10:**
+  - The person deleted `Industry` and published live (21:59).
+  - Checked on live: the 10 redirects pass `wf:redirects test --live`; all 10 market pages match the snapshot, with originals in place of copies; back links and pills are right on ZF, Wagner Place and Beacon Park; the home grid has 9 projects; no copies are in the sitemap.
+  - The `Industries` help text now says the first industry is the main one, and not to duplicate projects.

@@ -22,7 +22,7 @@
     {"id":"t-9cc3fe78","text":"Check Webflow plan, CMS and form limits","done":false},
     {"id":"t-92203560","text":"Take a Webflow backup (Site settings › Backups) before the parity release","done":false},
     {"id":"t-7a4f1ff8","text":"Create the GitHub repo brandvm/wf-roncelli and push this repo","done":true},
-    {"id":"t-bba36a92","text":"Duplicate projects: add multi-market field, tag kept items, update market lists and project pills, archive copies, 301 redirects (DECISIONS.md 2026-11-10)","done":false},
+    {"id":"t-bba36a92","text":"Duplicate projects: add multi-market field, tag kept items, update market lists and project pills, archive copies, 301 redirects (DECISIONS.md 2026-11-10)","done":true},
     {"id":"t-1ff8ae4c","text":"Duplicate news posts (2): client to decide which copy stays","done":false},
     {"id":"t-b373a7fe","text":"Zendesk AI chatbot sitewide: client going ahead, live in about a month (from 2026-11-10); install when they send the snippet","done":false}
   ],
