@@ -16,12 +16,15 @@
   "todos": [
     {"id":"t-26b1b854","text":"Decide: cookie consent banner needed? (GA4 runs with no banner)","done":false},
     {"id":"t-8bca7633","text":"Decide: which of the two Ahrefs keys is Roncelli's","done":false},
-    {"id":"t-a25aeee4","text":"Decide: which copy of each duplicate project/news item stays (action list B1)","done":false},
+    {"id":"t-a25aeee4","text":"Decide: which copy of each duplicate project/news item stays (action list B1)","done":true},
     {"id":"t-9df7447a","text":"Approve content fixes in news posts (action list B2–B10)","done":false},
     {"id":"t-b4d8b610","text":"Test-submit every form and confirm notifications arrive","done":false},
     {"id":"t-9cc3fe78","text":"Check Webflow plan, CMS and form limits","done":false},
     {"id":"t-92203560","text":"Take a Webflow backup (Site settings › Backups) before the parity release","done":false},
-    {"id":"t-7a4f1ff8","text":"Create the GitHub repo brandvm/wf-roncelli and push this repo","done":false}
+    {"id":"t-7a4f1ff8","text":"Create the GitHub repo brandvm/wf-roncelli and push this repo","done":true},
+    {"id":"t-bba36a92","text":"Duplicate projects: add multi-market field, tag kept items, update market lists and project pills, archive copies, 301 redirects (DECISIONS.md 2026-11-10)","done":false},
+    {"id":"t-1ff8ae4c","text":"Duplicate news posts (2): client to decide which copy stays","done":false},
+    {"id":"t-b373a7fe","text":"Zendesk AI chatbot sitewide: client going ahead, live in about a month (from 2026-11-10); install when they send the snippet","done":false}
   ],
   "components": [],
   "history": [

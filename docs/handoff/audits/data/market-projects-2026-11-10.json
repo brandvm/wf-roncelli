@@ -1,0 +1,108 @@
+{
+ "advanced-manufacturing": [
+  "ardc-battery-test-lab",
+  "brose-facility-expansion",
+  "canoo-electric-vehicle-laboratory",
+  "crown-kearny-logistics",
+  "electric-vehicle-test-room",
+  "engineering-laboratory-office-renovations",
+  "fca-custom-fit-up-paint-booth-facility",
+  "freud-street-metering-facility",
+  "general-motors-vehicle-engineering-center-tower-fglqe",
+  "kansas-city-air-tempering-project",
+  "lear-manufacturing-facility",
+  "lgcmi-h-project-battery-manufacturing-facility-4zwup",
+  "lyon-distribution-center-ii",
+  "operating-engineers-324-training-facility",
+  "powertrain-fuel-system-lab",
+  "project-cadence",
+  "zf-office-renovation-tjvtq"
+ ],
+ "education": [
+  "eugene-applebaum-college-of-pharmacy-and-health-sciences",
+  "macabee-2nd-floor-renovation",
+  "operating-engineers-324-training-facility-2",
+  "wayne-state-university-damon-j-keith-center-for-civil-rights-building",
+  "western-michigan-university-davis-dining-hall-food-service-renovations"
+ ],
+ "energy": [
+  "cold-creek-bess-epc",
+  "cold-creek-solar-park",
+  "fish-creek-solar-park",
+  "lgcmi-h-project-battery-manufacturing-facility"
+ ],
+ "entertainment-hospitality": [
+  "cellar-59-wine-bar",
+  "crispellis-bakery-and-pizzeria",
+  "freedom-hill-amphitheater-expansion-renovation",
+  "great-oaks-country-club-pool-deck-area-renovation",
+  "highlands-restaurant-renovation",
+  "lumen-restaurant",
+  "mjr-grand-digital-cinema-16",
+  "mjr-marketplace-studio-bar-lounge",
+  "motown-esther-gordy-edwards-centre-for-excellence",
+  "petitpren-warehouse-addition",
+  "regal-cinemas-12-theatre---westfield-plaza-camino-real",
+  "riverfront-restaurant-renovation",
+  "state-savings-bank-renovation-7bxy0"
+ ],
+ "government-municipality": [
+  "ammex-duty-free-store",
+  "city-of-sterling-heights-campus-renovation",
+  "dpw-municipal-garage",
+  "fred-and-barbara-erb-discovery-trails-0a9z4",
+  "wayne-county-airport-authority-michael-berry-administration-building",
+  "wca-north-power-house-facility-renovation"
+ ],
+ "healthcare": [
+  "1st-floor-or-renovation-ll",
+  "6th-floor-cicu-buildout",
+  "7-west-intermediate-care",
+  "behavioral-health-pavilion",
+  "centralized-sterile-compounding-center",
+  "crisis-clinical-care-center",
+  "elijah-mccoy-consolidated-services-center",
+  "gastroenterology-endoscopy-renovation",
+  "lawrence-idell-weisberg-cancer-treatment-center-renovation-expansion",
+  "martha-firestone-and-william-clay-ford-hall",
+  "medical-ambulatory-surgery-center",
+  "nicu-renovation",
+  "northwest-tower-addition",
+  "outpatient-care-campus",
+  "pediatric-behavioral-health-inpatient-unit"
+ ],
+ "mission-critical": [
+  "the-barn-operations-building",
+  "the-barn-warehouse",
+  "the-barn-waste-water-treatment-facility",
+  "the-barn-water-treatment-fire-pump-house"
+ ],
+ "mixed-use-multi-family": [
+  "bodega-of-brush-park",
+  "griswold-building-historical-renovation",
+  "nino-salvaggio-international-marketplace",
+  "the-belle-building-renovation",
+  "wagner-place-development"
+ ],
+ "office-workplace": [
+  "1st-floor-conference-rooms",
+  "archdiocese-of-detroit-administrative-offices-renovation",
+  "detroit-church-of-scientology",
+  "engineering-laboratory-office-renovations-tobrj",
+  "general-motors-vehicle-engineering-center-tower",
+  "state-savings-bank-renovation",
+  "universal-corporate-campus-redevelopment",
+  "wagner-place-development-4wdmc",
+  "warren-service-center-renovation",
+  "wayne-county-airport-authority-michael-berry-administration-building-hvx02",
+  "workplace-transformation-initiative",
+  "zf-office-renovation"
+ ],
+ "parks-recreation": [
+  "beacon-park-detroit",
+  "detroit-p-a-l-headquarters-willie-horton-field-of-dreams-stadium",
+  "fred-and-barbara-erb-discovery-trails",
+  "freedom-hill-amphitheater-expansion-renovation-pryla",
+  "skipperbuds-cass-lake-marina-renovation"
+ ]
+}

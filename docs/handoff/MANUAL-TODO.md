@@ -56,4 +56,6 @@ again at each gate, so the steps are found early and not at the end:
 
 | ID | Where (page › element or class) | Breakpoint | Set | Why the API can't | Done |
 | --- | --- | --- | --- | --- | --- |
-| A | | Desktop | | | ☐ |
+| A | Market template › projects Collection List (filter) | All | Filter: `Markets` contains Current Market (was `Market` equals Current Market) | API can't edit Collection List filters | ☐ |
+| B | Project template › market pill | All | Replace the single pill with a Collection List sourced from `Markets` (one pill per market, same pill class). "Back to all Projects" stays on `Market` | API can't source a list from a multi-reference field | ☐ |
+| C | Site settings › 301 redirects | — | 10 redirects `/project/<copy>` → `/project/<kept>` (DECISIONS.md 2026-11-10 table) | Redirects are set in Site settings | ☐ |
