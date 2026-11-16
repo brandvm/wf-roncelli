@@ -1,0 +1,25 @@
+<!-- Schema: CMS template page (JSON-LD built from the page so names with quotes or & stay valid). Source: brandvm/wf-roncelli docs/seo/schema/templates/generic.head.html -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var TYPE = 'WebPage'; // ProfilePage on Leaderships
+  var SECTION = null;   // e.g. ['Leadership', '/leadership'] adds a middle breadcrumb
+  var D = 'https://www.buildroncelli.com', ORG = D + '/#organization', SITE = D + '/#website';
+  var url = D + location.pathname;
+  var h1 = document.querySelector('h1');
+  var name = (h1 ? h1.textContent.replace(/\s+/g, ' ').trim() : '') || document.title.split(' | ')[0];
+  var descEl = document.querySelector('meta[name="description"]');
+  var page = { '@type': TYPE, '@id': url + '#webpage', url: url, name: name,
+    isPartOf: { '@id': SITE }, about: { '@id': ORG }, publisher: { '@id': ORG }, inLanguage: 'en-US',
+    breadcrumb: { '@id': url + '#breadcrumb' } };
+  if (descEl && descEl.getAttribute('content')) page.description = descEl.getAttribute('content');
+  if (TYPE === 'ProfilePage') page.mainEntity = { '@type': 'Person', name: name, worksFor: { '@id': ORG } };
+  var items = [['Home', '/']].concat(SECTION ? [SECTION] : [], [[name, location.pathname]]);
+  var crumbs = { '@type': 'BreadcrumbList', '@id': url + '#breadcrumb', itemListElement: items.map(function (it, i) {
+    return { '@type': 'ListItem', position: i + 1, name: it[0], item: D + it[1] };
+  }) };
+  var s = document.createElement('script');
+  s.type = 'application/ld+json';
+  s.text = JSON.stringify({ '@context': 'https://schema.org', '@graph': [page, crumbs] });
+  document.head.appendChild(s);
+});
+</script>

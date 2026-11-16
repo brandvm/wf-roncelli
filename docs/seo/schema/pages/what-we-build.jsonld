@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.buildroncelli.com/what-we-build#webpage",
+      "url": "https://www.buildroncelli.com/what-we-build",
+      "name": "What We Build",
+      "description": "Explore Roncelli’s construction experience across advanced manufacturing, healthcare, education, energy, government, workplace, recreation, and more.",
+      "isPartOf": {
+        "@id": "https://www.buildroncelli.com/#website"
+      },
+      "about": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://www.buildroncelli.com/what-we-build#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.buildroncelli.com/what-we-build#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.buildroncelli.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "What We Build",
+          "item": "https://www.buildroncelli.com/what-we-build"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.buildroncelli.com/chatbot-leadership-preview#webpage",
+      "url": "https://www.buildroncelli.com/chatbot-leadership-preview",
+      "name": "Roncelli Chatbot | Leadership Preview",
+      "description": "Internal chatbot evaluation for Roncelli leadership. Testing only.",
+      "isPartOf": {
+        "@id": "https://www.buildroncelli.com/#website"
+      },
+      "about": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "inLanguage": "en-US"
+    }
+  ]
+}

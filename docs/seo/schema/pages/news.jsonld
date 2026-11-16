@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://www.buildroncelli.com/news#webpage",
+      "url": "https://www.buildroncelli.com/news",
+      "name": "News & Insights",
+      "description": "Read the latest Roncelli news, project updates, company milestones, community stories, and construction insights from our teams and partners.",
+      "isPartOf": {
+        "@id": "https://www.buildroncelli.com/#website"
+      },
+      "about": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://www.buildroncelli.com/news#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.buildroncelli.com/news#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.buildroncelli.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "News",
+          "item": "https://www.buildroncelli.com/news"
+        }
+      ]
+    }
+  ]
+}

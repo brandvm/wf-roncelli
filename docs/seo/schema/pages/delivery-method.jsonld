@@ -1,0 +1,49 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.buildroncelli.com/how-we-build/delivery-method#webpage",
+      "url": "https://www.buildroncelli.com/how-we-build/delivery-method",
+      "name": "Construction Delivery Methods",
+      "description": "Explore Roncelli’s construction delivery methods, including planning, collaboration, scheduling, budgeting, and execution tailored to each project’s goals.",
+      "isPartOf": {
+        "@id": "https://www.buildroncelli.com/#website"
+      },
+      "about": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://www.buildroncelli.com/how-we-build/delivery-method#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.buildroncelli.com/how-we-build/delivery-method#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.buildroncelli.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "How We Build",
+          "item": "https://www.buildroncelli.com/how-we-build"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Delivery Method",
+          "item": "https://www.buildroncelli.com/how-we-build/delivery-method"
+        }
+      ]
+    }
+  ]
+}

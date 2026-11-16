@@ -1,0 +1,77 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.buildroncelli.com/how-we-build/facilities-management#webpage",
+      "url": "https://www.buildroncelli.com/how-we-build/facilities-management",
+      "name": "Facilities Management",
+      "description": "Roncelli supports active facilities with renovations, emergency repairs, infrastructure upgrades, and ongoing programs that minimize operational disruption.",
+      "isPartOf": {
+        "@id": "https://www.buildroncelli.com/#website"
+      },
+      "about": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://www.buildroncelli.com/how-we-build/facilities-management#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.buildroncelli.com/how-we-build/facilities-management#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.buildroncelli.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "How We Build",
+          "item": "https://www.buildroncelli.com/how-we-build"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Facilities Management",
+          "item": "https://www.buildroncelli.com/how-we-build/facilities-management"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.buildroncelli.com/how-we-build/facilities-management#service",
+      "name": "Facilities Management",
+      "serviceType": "Facilities management and maintenance construction",
+      "description": "Roncelli supports active facilities with renovations, emergency repairs, infrastructure upgrades, and ongoing programs that minimize operational disruption.",
+      "provider": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "areaServed": [
+        {
+          "@type": "State",
+          "name": "Michigan"
+        },
+        {
+          "@type": "Place",
+          "name": "Midwest United States"
+        },
+        {
+          "@type": "State",
+          "name": "Ontario, Canada"
+        }
+      ],
+      "url": "https://www.buildroncelli.com/how-we-build/facilities-management",
+      "mainEntityOfPage": {
+        "@id": "https://www.buildroncelli.com/how-we-build/facilities-management#webpage"
+      }
+    }
+  ]
+}

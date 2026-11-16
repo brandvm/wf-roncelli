@@ -1,0 +1,413 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.buildroncelli.com/faq#webpage",
+      "url": "https://www.buildroncelli.com/faq",
+      "name": "Frequently Asked Questions",
+      "description": "Find answers about Roncelli’s construction services, markets, delivery methods, safety standards, self-perform capabilities, trade partner process, careers, and project inquiries.",
+      "isPartOf": {
+        "@id": "https://www.buildroncelli.com/#website"
+      },
+      "about": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://www.buildroncelli.com/faq#breadcrumb"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Roncelli the right construction partner for my project?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli is a strong fit for owners planning complex construction projects that require disciplined planning, clear communication, safety-focused execution, and reliable project delivery. Our teams support clients across advanced manufacturing, healthcare, education, energy, mission critical, government, office, mixed-use, entertainment, hospitality, parks, and recreation markets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Roncelli do?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli provides construction management, general contracting, preconstruction planning, project execution, safety oversight, closeout support, and select self-perform construction services. Our approach is built around structure, communication, accountability, safety, quality, and long-term client relationships."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where does Roncelli build?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli delivers complex construction projects across Southeast Michigan, the broader Midwest, and Ontario, Canada. Our teams bring regional knowledge, trusted trade partner relationships, and consistent execution to every project."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How early should I contact Roncelli about a project?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The earlier Roncelli is involved, the more value our teams can bring through scope definition, budgeting, scheduling, constructability review, trade partner input, and early risk reduction. Early involvement helps align expectations before construction begins."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What information should I have ready before contacting Roncelli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Helpful information includes your company name, project market, location, basic scope, desired schedule, budget goals, and any known project constraints. The Contact page allows users to select a market and submit project details so the inquiry can be routed to the right team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How can subcontractors or vendors work with Roncelli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trade partners can prequalify through TradeTapp and find public bid opportunities through BuildingConnected. Roncelli uses these platforms to manage bid invitations, documents, communication, and public opportunities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why do clients choose Roncelli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Clients choose Roncelli for experienced people, disciplined planning, clear communication, safety-focused execution, technology that improves visibility, and a structured process from preconstruction through closeout. Roncelli's differentiators include trusted people, certainty in delivery, safety and quality, technology that reduces risk, and an exceptional client experience."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What makes Roncelli different from other construction companies?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli combines construction management experience, self-perform capabilities, strong field leadership, digital coordination, safety planning, and long-term client relationships. The company's approach is focused on managing complexity, reducing risk, and keeping owners informed throughout the project lifecycle."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Roncelli work in active or occupied facilities?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Roncelli serves markets where active operations, phasing, safety, and coordination are critical, including healthcare, manufacturing, education, government, mission critical, and workplace environments. The company emphasizes market-specific expertise for active healthcare and manufacturing environments, public facilities, energy projects, and community spaces."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Roncelli help reduce project risk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli reduces risk through early planning, budgeting, scheduling, constructability review, digital coordination, trade partner engagement, safety planning, field leadership, and active project controls. These steps help identify issues earlier and keep projects aligned with owner goals."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can Roncelli support projects outside Southeast Michigan?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Roncelli's primary focus includes Southeast Michigan, the Midwest, and Ontario, Canada. The company can also support projects beyond its core region when long-term partnerships align and the project can receive the planning, oversight, and execution clients expect."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What markets does Roncelli serve?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli builds across advanced manufacturing, education, energy, entertainment and hospitality, government and municipality, healthcare, mission critical, mixed-use and multifamily, office and workplace, and parks and recreation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Roncelli build healthcare projects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Roncelli serves healthcare clients and understands the planning, safety, phasing, coordination, and operational demands that come with healthcare construction. Healthcare is one of the core markets listed on Roncelli's website."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Roncelli build advanced manufacturing projects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Roncelli serves advanced manufacturing clients and brings experience to complex environments where safety, productivity, sequencing, field coordination, and long-term facility performance matter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Roncelli build energy projects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Roncelli serves the energy market and offers Engineering, Procurement & Construction delivery for energy, industrial, and infrastructure projects where performance certainty, procurement, construction, commissioning, and schedule control are important."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Roncelli build mission critical projects?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Roncelli serves mission critical clients and supports complex environments where uptime, reliability, coordination, and operational continuity are essential. Mission critical is listed as one of Roncelli's core markets."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What construction delivery methods does Roncelli offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli offers Construction Management at Risk, Design-Build, Engineering, Procurement & Construction, Construction Management Agency, Facilities & Program Services, Owner's Representative / Advisory Services, and Design-Bid-Build."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Roncelli help clients choose the right delivery method?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli helps clients compare delivery options based on project complexity, funding structure, procurement requirements, risk tolerance, schedule needs, owner involvement, and contract strategy."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Construction Management at Risk?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Construction Management at Risk, or CMaR, brings Roncelli into the project early for preconstruction planning, cost modeling, scheduling, constructability review, and risk management. Under this model, Roncelli holds the trade contracts and manages coordination, cost, schedule, safety, and performance during construction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Design-Build?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Design-Build places design and construction under one contract to align accountability, streamline communication, accelerate decision-making, improve coordination, and connect design intent with construction execution from the start."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is EPC construction?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Engineering, Procurement & Construction, or EPC, gives clients single-point responsibility for engineering, equipment procurement, construction, and commissioning. Roncelli uses this model for energy, industrial, and infrastructure projects where performance certainty and schedule control are important."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Roncelli provide preconstruction services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Roncelli supports preconstruction through scope definition, budgeting, scheduling, constructability, design and estimating coordination, trade partner engagement, cost modeling, value optimization, and early risk reduction."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Roncelli manage cost and schedule?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli manages cost and schedule through detailed estimating, cost modeling, active schedule tracking, forecasting, reporting, change management, trade coordination, and early action when project conditions or critical path activities change."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens during project closeout?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli supports closeout through commissioning, systems integration, documentation, turnover, owner training, handover, warranty support, and follow-up after construction is complete."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Roncelli approach safety?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Safety is built into Roncelli's planning, field leadership, training, job hazard analysis, task planning, client-specific requirements, and daily jobsite accountability. Roncelli describes safety as a shared responsibility across every project team."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Roncelli create project-specific safety plans?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Roncelli develops a site-specific Safety & Health Plan for each project, aligned with owner requirements, project conditions, trade partner responsibilities, and industry best practices."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Roncelli keep safety visible on jobsites?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli reinforces safety through visual reminders, daily, weekly, and monthly safety check-ins, job boards, safety binders, accessible reference materials, and recognition programs that support accountability and awareness."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Roncelli support quality?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli supports quality through planning, defined quality standards, inspections, documentation, coordination, closeout procedures, and accountability from early planning through completion."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Roncelli use technology?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli uses digital coordination, VDC, cost modeling, digital project controls, reporting tools, and data-driven processes to improve visibility, identify conflicts earlier, support faster decisions, and strengthen project outcomes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Roncelli self-perform construction work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Roncelli self-performs select construction scopes that benefit from direct field oversight, schedule control, safety coordination, and consistent execution."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What work does Roncelli self-perform?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli's Self-Perform Group manages key scopes such as structural and industrial concrete, civil and site work, solar mechanical installation, and supplemental field services."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why does self-perform matter for clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Self-perform capabilities give Roncelli more control over critical scopes, reduce handoffs, improve sequencing, support faster response times, strengthen accountability, and provide greater visibility into schedule-sensitive work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What concrete services does Roncelli self-perform?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli self-performs structural and industrial concrete services including foundations, footings, structural walls, columns, cores, equipment foundations, machine pads, interior slabs, reinforced flatwork, exterior slab-on-grade systems, and large-format industrial floor systems."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does Roncelli self-perform solar installation work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. For utility-scale and commercial solar projects, Roncelli provides self-perform installation services supporting structural and mechanical systems, including pile installation, racking system installation, solar module installation, balance-of-system support, and site coordination."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do trade partners get on Roncelli's bid list?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trade partners can submit company information through TradeTapp to be considered for Roncelli's approved vendor list."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can trade partners find Roncelli bid opportunities?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Trade partners can find public bid opportunities through BuildingConnected from Roncelli's Trade Partners page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Roncelli's bid process?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli's bid process includes prequalification, invitation to bid, pre-bid meetings, RFI responses, bid receipt, bid evaluation, and contract award."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How does Roncelli evaluate trade partner bids?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli reviews bids based on scope alignment, safety, performance, schedule, and overall project fit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Why should trade partners work with Roncelli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli emphasizes a transparent and fair bid process, safety-focused jobsites, clear communication, respectful relationships, accountability, and long-term partnership."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is it like to work at Roncelli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Working at Roncelli means contributing to meaningful construction projects while being part of a culture built around safety, respect, accountability, mentorship, teamwork, innovation, and career growth."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What types of roles are available at Roncelli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli offers opportunities in the field, in project management, and across office teams. Current opportunities are listed on the Careers page."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What benefits does Roncelli offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli offers competitive pay based on experience, medical, dental, vision, life insurance, paid time off, holidays, work-life balance, mentorship, professional development, advancement opportunities, and a safety-first culture."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I apply for a job at Roncelli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Candidates can visit Roncelli's Careers page to view open positions and explore opportunities with the company."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is the best way to contact Roncelli?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The best way to contact Roncelli is through the Contact page, where you can submit your name, company, market, phone number, email, and project details."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is Roncelli's main phone number?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli's main phone number is 586.264.2060."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is Roncelli headquartered?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Roncelli's headquarters is located at 6471 Metro Parkway, Sterling Heights, MI 48312. Roncelli also lists a Detroit office at 2937 E Grand Blvd., Suite 505, Detroit, MI 48202."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.buildroncelli.com/faq#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.buildroncelli.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "FAQs",
+          "item": "https://www.buildroncelli.com/faq"
+        }
+      ]
+    }
+  ]
+}

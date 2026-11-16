@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.buildroncelli.com/community-and-foundation#webpage",
+      "url": "https://www.buildroncelli.com/community-and-foundation",
+      "name": "Community & Foundation",
+      "description": "Learn how the Roncelli Family Foundation supports Metro Detroit through charitable giving, volunteerism, partnerships, and programs that expand opportunity.",
+      "isPartOf": {
+        "@id": "https://www.buildroncelli.com/#website"
+      },
+      "about": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://www.buildroncelli.com/community-and-foundation#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.buildroncelli.com/community-and-foundation#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.buildroncelli.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Community & Foundation",
+          "item": "https://www.buildroncelli.com/community-and-foundation"
+        }
+      ]
+    }
+  ]
+}

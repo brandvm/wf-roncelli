@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.buildroncelli.com/where-we-build#webpage",
+      "url": "https://www.buildroncelli.com/where-we-build",
+      "name": "Where We Build",
+      "description": "See where Roncelli builds across Michigan, the Midwest, Ontario, and beyond, delivering construction projects with regional expertise and consistency.",
+      "isPartOf": {
+        "@id": "https://www.buildroncelli.com/#website"
+      },
+      "about": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://www.buildroncelli.com/where-we-build#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.buildroncelli.com/where-we-build#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.buildroncelli.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Where We Build",
+          "item": "https://www.buildroncelli.com/where-we-build"
+        }
+      ]
+    }
+  ]
+}

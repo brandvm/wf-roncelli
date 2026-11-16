@@ -1,0 +1,109 @@
+<!-- Schema | Global: Organization + WebSite (source: brandvm/wf-roncelli docs/seo/schema/global.jsonld) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "GeneralContractor",
+      "@id": "https://www.buildroncelli.com/#organization",
+      "name": "Roncelli",
+      "legalName": "Roncelli, Inc.",
+      "url": "https://www.buildroncelli.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://cdn.prod.website-files.com/695eb0569a00fe00b842a8fb/6a0b0345e3ef3e2941432d6e_Favicon%20Logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://cdn.prod.website-files.com/695eb0569a00fe00b842a8fb/6a0b0345e3ef3e2941432d6e_Favicon%20Logo.png",
+      "description": "Roncelli provides construction management, general contracting, design-build, EPC and self-perform construction services across Michigan, the Midwest and Ontario.",
+      "foundingDate": "1966",
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Detroit, Michigan"
+      },
+      "email": "hello@buildroncelli.com",
+      "telephone": "+1-586-264-2060",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "6471 Metro Parkway",
+        "addressLocality": "Sterling Heights",
+        "addressRegion": "MI",
+        "postalCode": "48312",
+        "addressCountry": "US"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "State",
+          "name": "Michigan"
+        },
+        {
+          "@type": "Place",
+          "name": "Midwest United States"
+        },
+        {
+          "@type": "State",
+          "name": "Ontario, Canada"
+        }
+      ],
+      "department": [
+        {
+          "@type": "GeneralContractor",
+          "@id": "https://www.buildroncelli.com/#detroit-office",
+          "name": "Roncelli Detroit Office",
+          "telephone": "+1-313-964-5689",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "2937 E Grand Blvd, Suite 505",
+            "addressLocality": "Detroit",
+            "addressRegion": "MI",
+            "postalCode": "48202",
+            "addressCountry": "US"
+          },
+          "parentOrganization": {
+            "@id": "https://www.buildroncelli.com/#organization"
+          }
+        }
+      ],
+      "knowsAbout": [
+        "Construction management",
+        "General contracting",
+        "Design-build",
+        "Engineering, procurement and construction (EPC)",
+        "Preconstruction",
+        "Self-perform concrete",
+        "Solar installation"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/roncelli-inc-/",
+        "https://www.facebook.com/roncelliconstruction/",
+        "https://www.instagram.com/buildroncelli/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.buildroncelli.com/#website",
+      "url": "https://www.buildroncelli.com/",
+      "name": "Roncelli",
+      "publisher": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>

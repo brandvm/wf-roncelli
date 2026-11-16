@@ -1,0 +1,35 @@
+<!-- Schema: News article (JSON-LD built from the page so names with quotes or & stay valid). Source: brandvm/wf-roncelli docs/seo/schema/templates -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var D = 'https://www.buildroncelli.com', ORG = D + '/#organization', SITE = D + '/#website';
+  var url = D + location.pathname;
+  var text = function (sel) { var el = document.querySelector(sel); return el ? el.textContent.replace(/\s+/g, ' ').trim() : ''; };
+  var name = text('h1') || document.title.split(' | ')[0];
+  var descEl = document.querySelector('meta[name="description"]');
+  var desc = descEl ? descEl.getAttribute('content') : '';
+  var crumbs = function (items) {
+    return { '@type': 'BreadcrumbList', '@id': url + '#breadcrumb', itemListElement: items.map(function (it, i) {
+      return { '@type': 'ListItem', position: i + 1, name: it[0], item: D + it[1] };
+    }) };
+  };
+  var emit = function (graph) {
+    var s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+    document.head.appendChild(s);
+  };
+  var img = '{{wf {&quot;path&quot;:&quot;news-article-cover-image&quot;,&quot;type&quot;:&quot;ImageRef&quot;\} }}';
+  var months = 'January|February|March|April|May|June|July|August|September|October|November|December';
+  var m = document.body.textContent.match(new RegExp('(' + months + ') (\\d{1,2}), (\\d{4})'));
+  var iso = m && +m[3] > 1990 ? m[3] + '-' + ('0' + (months.split('|').indexOf(m[1]) + 1)).slice(-2) + '-' + ('0' + m[2]).slice(-2) : undefined;
+  var article = { '@type': 'NewsArticle', '@id': url + '#article', headline: name.slice(0, 110),
+    url: url, mainEntityOfPage: { '@id': url + '#webpage' }, author: { '@id': ORG }, publisher: { '@id': ORG },
+    inLanguage: 'en-US' };
+  if (desc) article.description = desc;
+  if (img) article.image = [img];
+  if (iso) { article.datePublished = iso; article.dateModified = iso; }
+  var page = { '@type': 'WebPage', '@id': url + '#webpage', url: url, name: name, isPartOf: { '@id': SITE },
+    breadcrumb: { '@id': url + '#breadcrumb' } };
+  emit([article, page, crumbs([['Home', '/'], ['News', '/news'], [name, location.pathname]])]);
+});
+</script>

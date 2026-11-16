@@ -1,0 +1,31 @@
+<!-- Schema: Market (industry) page (JSON-LD built from the page so names with quotes or & stay valid). Source: brandvm/wf-roncelli docs/seo/schema/templates -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var D = 'https://www.buildroncelli.com', ORG = D + '/#organization', SITE = D + '/#website';
+  var url = D + location.pathname;
+  var text = function (sel) { var el = document.querySelector(sel); return el ? el.textContent.replace(/\s+/g, ' ').trim() : ''; };
+  var name = text('h1') || document.title.split(' | ')[0];
+  var descEl = document.querySelector('meta[name="description"]');
+  var desc = descEl ? descEl.getAttribute('content') : '';
+  var crumbs = function (items) {
+    return { '@type': 'BreadcrumbList', '@id': url + '#breadcrumb', itemListElement: items.map(function (it, i) {
+      return { '@type': 'ListItem', position: i + 1, name: it[0], item: D + it[1] };
+    }) };
+  };
+  var emit = function (graph) {
+    var s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.text = JSON.stringify({ '@context': 'https://schema.org', '@graph': graph });
+    document.head.appendChild(s);
+  };
+  var img = '{{wf {&quot;path&quot;:&quot;cover-image&quot;,&quot;type&quot;:&quot;ImageRef&quot;\} }}';
+  var service = { '@type': 'Service', '@id': url + '#service', name: name + ' Construction', serviceType: name + ' construction',
+    description: desc, url: url, provider: { '@id': ORG },
+    areaServed: [{ '@type': 'State', name: 'Michigan' }, { '@type': 'Place', name: 'Midwest United States' }, { '@type': 'State', name: 'Ontario, Canada' }] };
+  if (img) service.image = img;
+  var page = { '@type': 'CollectionPage', '@id': url + '#webpage', url: url, name: name, description: desc,
+    isPartOf: { '@id': SITE }, about: { '@id': url + '#service' }, publisher: { '@id': ORG }, inLanguage: 'en-US',
+    breadcrumb: { '@id': url + '#breadcrumb' } };
+  emit([service, page, crumbs([['Home', '/'], ['What We Build', '/what-we-build'], [name, location.pathname]])]);
+});
+</script>

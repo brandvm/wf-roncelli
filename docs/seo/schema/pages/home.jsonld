@@ -1,0 +1,25 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.buildroncelli.com/#webpage",
+      "url": "https://www.buildroncelli.com/",
+      "name": "Roncelli | Construction Management & General Contracting",
+      "description": "Roncelli provides construction management and general contracting across Michigan, the Midwest, and beyond, with safety-focused teams and dependable execution.",
+      "isPartOf": {
+        "@id": "https://www.buildroncelli.com/#website"
+      },
+      "about": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "mainEntity": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      }
+    }
+  ]
+}

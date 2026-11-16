@@ -1,0 +1,43 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.buildroncelli.com/what-sets-us-apart#webpage",
+      "url": "https://www.buildroncelli.com/what-sets-us-apart",
+      "name": "What Sets Roncelli Apart",
+      "description": "See how Roncelli delivers construction projects through trusted people, disciplined planning, safety, quality, technology, and a client-first experience.",
+      "isPartOf": {
+        "@id": "https://www.buildroncelli.com/#website"
+      },
+      "about": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "publisher": {
+        "@id": "https://www.buildroncelli.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@id": "https://www.buildroncelli.com/what-sets-us-apart#breadcrumb"
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.buildroncelli.com/what-sets-us-apart#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.buildroncelli.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "What Sets Us Apart",
+          "item": "https://www.buildroncelli.com/what-sets-us-apart"
+        }
+      ]
+    }
+  ]
+}
