@@ -65,3 +65,14 @@ One entry per decision: what was decided, who made it, when, and what it means f
   - The person deleted `Industry` and published live (21:59).
   - Checked on live: the 10 redirects pass `wf:redirects test --live`; all 10 market pages match the snapshot, with originals in place of copies; back links and pills are right on ZF, Wagner Place and Beacon Park; the home grid has 9 projects; no copies are in the sitemap.
   - The `Industries` help text now says the first industry is the main one, and not to duplicate projects.
+
+## 2026-11-20 · Meta descriptions for RC-03
+
+- **Decided by:** the person (Brand Vision), approving the wording Claude proposed, on 2026-11-20.
+- **Changed on staging (page settings › SEO description; OG follows "same as SEO"):**
+  - /legal/privacy-policy (new, 160): "Read how Roncelli collects, uses and protects information from visitors to buildroncelli.com, including log files, cookies and third-party advertising partners."
+  - /faq (179 → 159): "Answers about Roncelli’s construction services, markets, delivery methods, safety standards, self-perform work, trade partners, careers, and project inquiries."
+  - /how-we-build/safety (166 → 158): "Learn how Roncelli prioritizes construction safety through proactive planning, training, accountability, field leadership, and a culture of protecting people."
+  - /leadership (164 → 152): "Meet Roncelli’s leadership team, the construction professionals guiding company operations, project delivery, safety, quality, and client relationships."
+- A trailing line break was removed from 5 other descriptions (Self-Perform Group, Project Execution, Trade Partners, Careers, What We Build); wording unchanged.
+- The previous wording is in the Figma Step RC-3 card (before image), for rollback.
