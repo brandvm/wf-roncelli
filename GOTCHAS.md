@@ -41,3 +41,39 @@ collected from client repos into those files.
 - Found by: claude
 
 <!-- Add new entries here, newest first. -->
+
+### 2026-11-20 · `bulk_update_pages` refused with 403; the single-page update works
+- Area: mcp
+- Scope: template-candidate
+- Symptom: `data_pages_tool › bulk_update_pages` (openGraph on 3 pages) answered 403 "Your token does not have sufficient user-level permissions for this action". The same change through `update_page_settings`, one page at a time, succeeded straight after with the same sign-in.
+- Cause: the bulk endpoint needs a permission the per-page one doesn't (not a missing OAuth scope: the error code is `insufficient_permissions`, not `missing_scopes`).
+- Fix: send page settings with `update_page_settings`, one action per page, in one call. Read each result back.
+- Status: worked around
+- Found by: claude
+
+### 2026-11-20 · A heading drawn as an SVG: wrap it in a DOM h1 with an SVG title
+- Area: designer, mcp
+- Scope: template-candidate
+- Symptom: the home hero title "We Build What Matters" is an inline SVG (DOM `svg`) in a Div Block, so the page had no H1. `set_tag` can't make a Block an `h1` (Block tags are div/section/header…), and a Heading element can't hold a DOM `svg`.
+- Cause: lettering exported as an SVG instead of live text.
+- Fix: `data_element_builder` › `DOM` with `dom_tag: "h1"` inside the old wrapper, `move_element` the SVG into it, `role="img"` + `aria-label` on the SVG, and a `BY_CUSTOM_TAG` `title` child with `set_text` (it stores a real text node, so `textContent`, `wf:outline` and crawlers see the words). Give the h1 a class with `font-size`, `line-height` and `font-weight: inherit`: Webflow's `h1` tag style (38px/44px) otherwise changes the inline SVG's line box. Checked with `wf:baseline compare`: no shift.
+- Status: fixed (staging 2026-11-20)
+- Found by: claude
+
+### 2026-11-20 · Making a hero heading the H1 can create a level skip below it
+- Area: designer
+- Scope: template-candidate
+- Symptom: on /news the hero H2 became the H1, and the post cards (H3) then sat directly under it: `wf:outline` flagged "skipped a level". Before, H2 → H3 was correct.
+- Cause: the cards were levelled relative to the old H2 hero.
+- Fix: post card titles H3 → H2 (class D6 sets size, line-height and weight, so the look is unchanged). Run `wf:outline` after every H1 change, not only `wf:seo`.
+- Status: fixed (staging 2026-11-20)
+- Found by: claude
+
+### 2026-11-20 · `wf:seo` counted an inline SVG's `<title>` as a second page title
+- Area: ci
+- Scope: template-candidate
+- Symptom: after the home H1 got an SVG `<title>` (see the entry above), `wf:seo` failed `/` with "2 <title> tags".
+- Cause: `seo.mjs` matched every `<title>` in the HTML. Browsers and search engines take the document title from `<head>` only; an SVG's `<title>` is its accessible name.
+- Fix: `seo.mjs` reads titles from the part before `</head>`. Upstream it to wf-template (a template update would overwrite this file).
+- Status: open (fixed here, not upstreamed)
+- Found by: claude
