@@ -42,6 +42,15 @@ collected from client repos into those files.
 
 <!-- Add new entries here, newest first. -->
 
+### 2026-11-20 · `wf:baseline --live` shot staging, so a "staging vs live" compare compared staging with itself
+- Area: ci
+- Scope: template-candidate
+- Symptom: during the SEO batch, `wf:baseline save --live` then `compare` (no `--live`) reported "same" at 1440/820/390 — but both runs had shot `roncelli.webflow.io`. The batch's visual check was weaker than reported; the real evidence was an HTML diff of 22 pages against www.buildroncelli.com and a Playwright box measurement on both hosts.
+- Cause: the known template issue (lessons › loader-release-ci, 2026-10-19): `baseline.mjs` builds URLs from `stagingUrl`; `--live` only stops swapping in the local bundle. Not fixed in 1.0.1.
+- Fix: for a live reference, save from a folder whose `webflow-build.config.json` has `stagingUrl` set to the live domain (copy the config, change that one key, run `save` there with `--dir` pointing at the shared baselines folder), then `compare` from the repo. Needed for the parity release (RC-04).
+- Status: open (template issue; workaround documented)
+- Found by: claude
+
 ### 2026-11-20 · `bulk_update_pages` refused with 403; the single-page update works
 - Area: mcp
 - Scope: template-candidate
@@ -56,7 +65,7 @@ collected from client repos into those files.
 - Scope: template-candidate
 - Symptom: the home hero title "We Build What Matters" is an inline SVG (DOM `svg`) in a Div Block, so the page had no H1. `set_tag` can't make a Block an `h1` (Block tags are div/section/header…), and a Heading element can't hold a DOM `svg`.
 - Cause: lettering exported as an SVG instead of live text.
-- Fix: `data_element_builder` › `DOM` with `dom_tag: "h1"` inside the old wrapper, `move_element` the SVG into it, `role="img"` + `aria-label` on the SVG, and a `BY_CUSTOM_TAG` `title` child with `set_text` (it stores a real text node, so `textContent`, `wf:outline` and crawlers see the words). Give the h1 a class with `font-size`, `line-height` and `font-weight: inherit`: Webflow's `h1` tag style (38px/44px) otherwise changes the inline SVG's line box. Checked with `wf:baseline compare`: no shift.
+- Fix: `data_element_builder` › `DOM` with `dom_tag: "h1"` inside the old wrapper, `move_element` the SVG into it, `role="img"` + `aria-label` on the SVG, and a `BY_CUSTOM_TAG` `title` child with `set_text` (it stores a real text node, so `textContent`, `wf:outline` and crawlers see the words). Give the h1 a class with `font-size`, `line-height` and `font-weight: inherit`: Webflow's `h1` tag style (38px/44px) otherwise changes the inline SVG's line box. Checked by measuring the SVG's box with Playwright on the live domain and on staging at 667px: same position and height (128.98px). (A `wf:baseline compare --live` run at the time compared staging with staging: see the next entry.)
 - Status: fixed, live 2026-11-20
 - Found by: claude
 
