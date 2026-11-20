@@ -96,14 +96,19 @@ Before writing any CSS, decide where it belongs.
   runs is invisible there; use a `canvas-preview` rule if the Designer needs
   to see it.
 - **The canvas shows the staging stylesheet only.** Seeing a CSS change in
-  the Designer means push → ~1 min → reload the Designer tab. Never add a
-  static `http://localhost` link to the Embed for good — every public
-  visitor's browser would request it. `loader.html` describes the temporary
-  opt-in; if one is in use, the local and staging sheets are additive and a
-  deleted rule keeps applying from staging until pushed.
+  the Designer means push → ~1 min → reload the Designer tab. Never add an
+  `http://localhost` link to the Embed — every public visitor's browser
+  would request it. There is no local mode on Webflow pages: try code in
+  the localhost prototype, then push.
 - No live reload on the canvas. Reload the Designer tab.
 - Debug "is my CSS loading?" with `background`, not `outline` — outlines on
   `body` paint outside the canvas iframe and get clipped.
+- **Unset properties fall back to Webflow's defaults.** A margin, size,
+  colour or grid track nobody set usually comes from Webflow's own
+  stylesheet: a Grid element without columns and rows gets two columns,
+  two rows and 16px gaps from `.w-layout-grid`. The webflow-build skill's
+  `reference/webflow-default.css` is that stylesheet; its README lists the
+  defaults that cause trouble. Fix them on the class in the Designer.
 
 ## Snippets are not versioned
 
@@ -117,7 +122,6 @@ lives only in the Webflow head code; record it in Project facts above.
 ## Commands and release
 
 ```bash
-pnpm dev      # watch + server on the project's devPort (webflow-build.config.json; 3000 if unset)
 pnpm build    # minified -> dist/
 pnpm check    # tsc --noEmit + repo checks (scripts parse, skill links)
 pnpm test     # build + Playwright checks + the new-project test
@@ -135,8 +139,7 @@ pnpm phosphor regular bold   # icon font weights in the bundle (default: regular
 Node 22 and the pinned pnpm in `package.json`. `dist/` is committed: after
 any `src/` change run `pnpm build` and commit `dist/` with it — CI fails the
 push otherwise, and staging only deploys after `pnpm check`, the browser
-tests and the `dist/` check pass. `pnpm dev` builds in memory and never
-touches `dist/`.
+tests and the `dist/` check pass.
 
 Release as the README describes: tag a commit whose CI passed, then set
 `RELEASE` in the head snippet — the only version string. Never move a pushed
@@ -162,8 +165,10 @@ sign-in (OAuth token) never goes in the repo: these repos are public.
 Worked around, not fixed — do not rediscover these.
 
 - `custom_value` is rejected for Color and Size variables (`color-mix()`,
-  `oklch()`, `calc()`). Create those through the variables JSON import with
-  `valueType: "custom"`.
+  `oklch()`, `calc()`). Pass the value in the shape `get_variables`
+  returns, `value: {type: "custom", value: "calc(…)"}`, instead (accepted
+  for Size variables in every mode); otherwise create them through the
+  variables JSON import with `valueType: "custom"`.
 - Never create breakpoint auto-modes through the API
   (`create_variable_mode` with `breakpoint_id`): it can lock Body's mode
   slots for good. Create the modes without it and link them to the

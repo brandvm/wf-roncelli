@@ -37,7 +37,7 @@ collected from client repos into those files.
   - Read the dev port back from `loader.html`.
   - Seed the progress test repos with `empty()`, and skip the empty-seed test in client repos.
   - Skip the changelog test when there is no `CHANGELOG.md`, the same way `new-project.check.mjs` skips once set up.
-- Status: open (fixed here, not upstreamed)
+- Status: upstreamed wf-template 1.0.1 (taken here 2026-11-20 with `pnpm update-skills` and the 1.0.1 test files)
 - Found by: claude
 
 <!-- Add new entries here, newest first. -->
@@ -83,6 +83,6 @@ collected from client repos into those files.
 - Scope: template-candidate
 - Symptom: after the home H1 got an SVG `<title>` (see the entry above), `wf:seo` failed `/` with "2 <title> tags".
 - Cause: `seo.mjs` matched every `<title>` in the HTML. Browsers and search engines take the document title from `<head>` only; an SVG's `<title>` is its accessible name.
-- Fix: `seo.mjs` reads titles from the part before `</head>`. Upstream it to wf-template (a template update would overwrite this file).
+- Fix: `seo.mjs` reads titles from the part before `</head>`. Upstream it to wf-template (a template update overwrites this file: it did on the 1.0.1 update, and the fix was re-applied).
 - Status: open (fixed here, not upstreamed)
 - Found by: claude
