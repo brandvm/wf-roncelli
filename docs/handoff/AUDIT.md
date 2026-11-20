@@ -92,3 +92,7 @@ Not on the live site:
 - "Email Form" on News: actually the Finsweet filter.
 
 Interactions weren't read; they need the Designer open.
+
+## SEO batch RC-01–RC-03, live 2026-11-20
+
+`wf:seo --live --canonical` (296 pages): **310 → 24 findings**. Every page has og:title, og:description and twitter:card; og:image everywhere except 12 news posts with no cover image. One H1 on / and /news (0 pages without an H1). Left, all CMS content: 12 news covers, 3 empty descriptions, 2 duplicate news posts (B1), extra H1s in 4 news articles (A4). Redirects 10/10. Details: GOTCHAS 2026-11-20, DECISIONS 2026-11-20, Figma Steps RC-1–RC-3.
