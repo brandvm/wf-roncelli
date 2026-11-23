@@ -1,10 +1,9 @@
 # Session report: 2026-11-23
 
-The Claude Code sessions listed below were archived on 2026-11-23 to keep the Claude app responsive. This file records where each one left off, so a new session can pick up the work.
+The Claude Code sessions listed below were archived and then deleted on 2026-11-23 to keep the Claude app responsive. This file records where each one left off, so a new session can pick up the work.
 
 Read this with `HANDOFF.md` (the project brief and its Status section). If something here conflicts with `HANDOFF.md`, `HANDOFF.md` and the git history are more current.
 
-To reopen a session, go to the Claude app's sidebar → Archived, or use the session link while the app is installed.
 
 ## Open items
 
@@ -30,7 +29,7 @@ Branches not merged into the default branch:
 ### Roncelli: SEO batch (H1s, Open Graph)
 
 - **Active:** 2026-11-20 → 2026-11-23 11:44
-- **Session:** [local_a9f468d5-43df-4dac-9436-d70339ce876a](claude://claude.ai/epitaxy/local_a9f468d5-43df-4dac-9436-d70339ce876a) (archived)
+- **Session:** `local_a9f468d5-43df-4dac-9436-d70339ce876a` (deleted 2026-11-23)
 - **PR:** [brandvm/wf-roncelli#1](https://github.com/brandvm/wf-roncelli/pull/1)
 - **PR:** [brandvm/wf-template#27](https://github.com/brandvm/wf-template/pull/27)
 - **PR:** [brandvm/wf-roncelli#2](https://github.com/brandvm/wf-roncelli/pull/2)
@@ -44,7 +43,7 @@ Branches not merged into the default branch:
 ### Roncelli monthly audit
 
 - **Active:** 2026-11-06 → 2026-11-20 12:08
-- **Session:** [local_d20e4778-a0dd-4dd3-83d3-4a7423c63b82](claude://claude.ai/epitaxy/local_d20e4778-a0dd-4dd3-83d3-4a7423c63b82) (archived)
+- **Session:** `local_d20e4778-a0dd-4dd3-83d3-4a7423c63b82` (deleted 2026-11-23)
 - **PR:** [brandvm/wf-template#26](https://github.com/brandvm/wf-template/pull/26)
 - **Started with:** "@"/Users/Work/Documents/Webflow Projects/Roncelli/https-www-buildroncelli-com-.dbseospider" read this and make a combined list. and categorize into we can do, need client's go to implement (mostly for content change)"
 - **Where it ended:** PR #26's merge conflicts are resolved and pushed as 63ec963.
