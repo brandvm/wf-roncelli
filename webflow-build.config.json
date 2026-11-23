@@ -1,6 +1,5 @@
 {
   "prototypeUrl": "http://127.0.0.1:5766",
-  "devPort": 3666,
   "stagingUrl": "https://roncelli.webflow.io",
   "repoDir": ".",
   "bundlePattern": "brandvm\\.github\\.io/wf-roncelli/(index\\.js|styles\\.css)",
