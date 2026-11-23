@@ -42,6 +42,24 @@ collected from client repos into those files.
 
 <!-- Add new entries here, newest first. -->
 
+### 2026-11-23 · The Finsweet recipe's pnpm overrides block the v1 attribute packages
+- Area: js
+- Scope: template-candidate
+- Symptom: after `pnpm finsweet add list …`, `pnpm add @finsweet/attributes-numbercount@1.2.1` (a v1 script the site ran from jsDelivr) installed nothing, and the import failed to resolve.
+- Cause: `pnpm finsweet add` writes a global override `'@finsweet/attributes-<name>': '-'` for every per-attribute package v2 lists (they were never published as 2.x). The same names are the real v1 packages.
+- Fix: scope the override to v2's dependency only, `'@finsweet/attributes>@finsweet/attributes-numbercount': '-'`, then the direct v1 dependency installs. The v1 scripts start through `Webflow.push`, so a bundled `import('@finsweet/attributes-…')` works without their script tag; add a `declare module` for them (no types).
+- Status: worked around here (the recipe could write scoped overrides)
+- Found by: claude
+
+### 2026-11-23 · `wf:parity` can't test inline custom code; strip the document instead
+- Area: ci
+- Scope: template-candidate
+- Symptom: `wf:parity` reroutes old custom-code *asset URLs* (`parity.oldAssets`) to `dist/`. This site's code was all inline (footer `<script>` blocks, page code, an Embed), so there was nothing to reroute.
+- Cause: the script matches requests, not inline blocks.
+- Fix: a Playwright route on the live document: fetch it, drop the old inline scripts by a marker regex each, inject `dist/styles.css` and `dist/index.js`, and compare against the untouched page (two untouched renders first, for the noise floor). Use function replacers in `String.replace`: a minified bundle contains `$&`/`$'`, which a string replacement expands into copies of the page. Result here: 6 pages × 2 widths, 0 px difference, same heights, element counts and behaviour. Harness kept with the RC-04 notes.
+- Status: documented (candidate for a `--inline` mode in wf:parity)
+- Found by: claude
+
 ### 2026-11-20 · `wf:baseline --live` shot staging, so a "staging vs live" compare compared staging with itself
 - Area: ci
 - Scope: template-candidate
