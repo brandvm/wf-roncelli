@@ -19,6 +19,11 @@ async function recipe(dir, code) {
   return result.outputFiles[0].text;
 }
 
+// RC-04 parity release: the starter modules are off in src/index.ts (they
+// change the published markup), so their three tests are skipped until a
+// later batch turns them back on.
+const STARTERS_OFF = 'starter modules are off for the RC-04 parity release (src/index.ts)';
+
 async function setup(page, body, { script = js, init } = {}) {
   const errors = [];
   page.on('pageerror', (error) => errors.push(error.message));
@@ -32,6 +37,7 @@ async function setup(page, body, { script = js, init } = {}) {
 }
 
 test('data-aria-role replaces the role Webflow publishes', async ({ page }) => {
+  test.skip(true, STARTERS_OFF);
   const errors = await setup(page, `<div class="w-dyn-list"><div role="list" class="w-dyn-items" data-aria-role="rowgroup">
     <div role="listitem" class="w-dyn-item" data-aria-role="row">One</div>
     <div role="listitem" class="w-dyn-item" data-aria-role=" ">Two</div></div></div>`);
@@ -43,6 +49,7 @@ test('data-aria-role replaces the role Webflow publishes', async ({ page }) => {
 });
 
 test('data-placeholder becomes the field placeholder', async ({ page }) => {
+  test.skip(true, STARTERS_OFF);
   const errors = await setup(page, `<input id="name" placeholder="Designer" data-placeholder="Your name">
     <textarea id="message" data-placeholder="Tell us more"></textarea>
     <input id="empty" placeholder="Designer" data-placeholder="">`);
@@ -60,6 +67,7 @@ const radio = (label, checked = '') => `<div class="w-dyn-item"><label class="w-
   <span class="w-form-label" for="radio">${label}</span></label></div>`;
 
 test('duplicate CMS radio ids become unique and labels follow', async ({ page }) => {
+  test.skip(true, STARTERS_OFF);
   const errors = await setup(page, `<form>${radio('All', 'checked')}${radio('Experiential')}${radio('Media Relations')}${radio('All')}</form>
     <input id="solo" type="text"><label for="solo">Solo</label>`);
   const ids = await page.$$eval('input[type=radio]', (els) => els.map((e) => e.id));

@@ -4,9 +4,54 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@finsweet/attributes-accordion': '-'
+  '@finsweet/attributes-autovideo': '-'
+  '@finsweet/attributes-codehighlight': '-'
+  '@finsweet/attributes-combobox': '-'
+  '@finsweet/attributes-copyclip': '-'
+  '@finsweet/attributes-displayvalues': '-'
+  '@finsweet/attributes-favcustom': '-'
+  '@finsweet/attributes-formsubmit': '-'
+  '@finsweet/attributes-inject': '-'
+  '@finsweet/attributes-inputactive': '-'
+  '@finsweet/attributes-inputcounter': '-'
+  '@finsweet/attributes-list': '-'
+  '@finsweet/attributes-mirrorclick': '-'
+  '@finsweet/attributes-mirrorinput': '-'
+  '@finsweet/attributes-modal': '-'
+  '@finsweet/attributes>@finsweet/attributes-numbercount': '-'
+  '@finsweet/attributes-queryparam': '-'
+  '@finsweet/attributes-rangeslider': '-'
+  '@finsweet/attributes-readtime': '-'
+  '@finsweet/attributes-removequery': '-'
+  '@finsweet/attributes-safetriangles': '-'
+  '@finsweet/attributes-scrolldisable': '-'
+  '@finsweet/attributes-selectcustom': '-'
+  '@finsweet/attributes-sliderdots': '-'
+  '@finsweet/attributes-smartlightbox': '-'
+  '@finsweet/attributes-socialshare': '-'
+  '@finsweet/attributes-starrating': '-'
+  '@finsweet/attributes-toc': '-'
+  '@finsweet/attributes-utils': '-'
+  '@finsweet/attributes-videohls': '-'
+
 importers:
 
   .:
+    dependencies:
+      '@finsweet/attributes':
+        specifier: 2.7.1
+        version: 2.7.1
+      '@finsweet/attributes-cmsselect':
+        specifier: 1.7.0
+        version: 1.7.0
+      '@finsweet/attributes-numbercount':
+        specifier: 1.2.1
+        version: 1.2.1
+      swiper:
+        specifier: 11.2.10
+        version: 11.2.10
     devDependencies:
       '@playwright/test':
         specifier: 1.63.0
@@ -182,6 +227,15 @@ packages:
     cpu: [x64]
     os: [win32]
 
+  '@finsweet/attributes-cmsselect@1.7.0':
+    resolution: {integrity: sha512-8DK+P6ZRmlTG8IGeN488mfddi05BXVKmiVf+BojpRzf1Mp5UU42m4oyx6BDAzGYAGTTxaNHVcJWJnDBO50Wu4A==}
+
+  '@finsweet/attributes-numbercount@1.2.1':
+    resolution: {integrity: sha512-+hKsDo0aV770PdvhN5J8ladp6mYsM3O3FKxf6XEBuBgzP+qnRh1EsprPzjfmXi27KS80tos6LAFVNaUt0ubdhA==}
+
+  '@finsweet/attributes@2.7.1':
+    resolution: {integrity: sha512-AlniV6g+jtpBp3cXQN0yEEmUerR1sEKUzHh6jS6rc5qAEyNkcp9F7J9MTjxY9pB+U1+qsuNnNIlHBSp1AJbUEg==}
+
   '@playwright/test@1.63.0':
     resolution: {integrity: sha512-oxMK4vllB9RK5NQ2l1pq1IfOf2AvnEuj/vYGDj0H2nMtmtZpKtCwt/l00GEO6xjGfpBNAvjovvYdCm50dRQkpQ==}
     engines: {node: '>=20'}
@@ -325,6 +379,9 @@ packages:
   harfbuzzjs@1.6.3:
     resolution: {integrity: sha512-R5Mfo1UUvQmZJmtScP7fBLKYKnYu82ZdtFT7WbQYeGb3Ut5PR3xfFCJ5/FjbcW5SAfb9cqCSny/KNjp+NJBx0w==}
 
+  just-throttle@4.2.0:
+    resolution: {integrity: sha512-/iAZv1953JcExpvsywaPKjSzfTiCLqeguUTE6+VmK15mOcwxBx7/FHrVvS4WEErMR03TRazH8kcBSHqMagYIYg==}
+
   p-limit@3.1.0:
     resolution: {integrity: sha512-TYOanM3wGwNGsZN2cVTYPArw454xnXj5qmWF1bEoAc4+cU/ol7GVh7odevjp1FNHduHc3KZMcFduxU5Xc6uJRQ==}
     engines: {node: '>=10'}
@@ -344,6 +401,10 @@ packages:
 
   subset-font@2.9.0:
     resolution: {integrity: sha512-WJulQeFwbewrXIGcLJbSZFWI44fHW8gNRuPzLywfDL8w38IPRbN1JFxwG76aoohw9kcFdvjVIn2QmID1iy119A==}
+
+  swiper@11.2.10:
+    resolution: {integrity: sha512-RMeVUUjTQH+6N3ckimK93oxz6Sn5la4aDlgPzB+rBrG/smPdCTicXyhxa+woIpopz+jewEloiEE3lKo1h9w2YQ==}
+    engines: {node: '>= 4.7.0'}
 
   typescript@7.0.2:
     resolution: {integrity: sha512-8FYau96o3NKOhbjKi/qNvG/W5jhzxkbdm5sj9AbZ/5T5sWqn3hJgLfGx27sRKZWTvyzCP8dLRBTf5tBTSRVUNA==}
@@ -440,6 +501,14 @@ snapshots:
 
   '@esbuild/win32-x64@0.28.2':
     optional: true
+
+  '@finsweet/attributes-cmsselect@1.7.0': {}
+
+  '@finsweet/attributes-numbercount@1.2.1':
+    dependencies:
+      just-throttle: 4.2.0
+
+  '@finsweet/attributes@2.7.1': {}
 
   '@playwright/test@1.63.0':
     dependencies:
@@ -545,6 +614,8 @@ snapshots:
 
   harfbuzzjs@1.6.3: {}
 
+  just-throttle@4.2.0: {}
+
   p-limit@3.1.0:
     dependencies:
       yocto-queue: 0.1.0
@@ -562,6 +633,8 @@ snapshots:
       fontverter: 2.0.0
       harfbuzzjs: 1.6.3
       p-limit: 3.1.0
+
+  swiper@11.2.10: {}
 
   typescript@7.0.2:
     optionalDependencies:

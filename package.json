@@ -31,7 +31,8 @@
     "wf:overflow": "node .claude/skills/webflow-build/scripts/overflow.mjs",
     "wf:tracking": "node .claude/skills/webflow-build/scripts/tracking.mjs",
     "wf:redirects": "node .claude/skills/webflow-build/scripts/redirects.mjs",
-    "wf:domain": "node .claude/skills/webflow-build/scripts/domain.mjs"
+    "wf:domain": "node .claude/skills/webflow-build/scripts/domain.mjs",
+    "finsweet": "node scripts/finsweet.mjs"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",
@@ -39,5 +40,11 @@
     "esbuild": "^0.28.2",
     "subset-font": "2.9.0",
     "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@finsweet/attributes": "2.7.1",
+    "@finsweet/attributes-cmsselect": "1.7.0",
+    "@finsweet/attributes-numbercount": "1.2.1",
+    "swiper": "11.2.10"
   }
 }
